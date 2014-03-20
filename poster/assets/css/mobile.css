@@ -1,0 +1,732 @@
+body {
+
+	margin: 0;
+	padding: 0;
+
+	padding-left: 190px;
+
+	background: #E6E6E6;
+
+	font-family: "Merriweather Sans";
+
+    -webkit-transition: padding .3s ease-in-out;
+    -moz-transition: padding .3s ease-in-out;
+    -o-transition: padding .3s ease-in-out;
+    transition: padding .3s ease-in-out;
+
+}
+
+#sidebar {
+
+	margin: 0;
+	padding: 5px;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	width: 110px;
+	height: 100%;
+
+	background: #04BF9D;
+
+	border-top: 10px solid #143F38;
+
+    -webkit-transition: margin .5s ease-in-out;
+    -moz-transition: margin .5s ease-in-out;
+    -o-transition: margin .5s ease-in-out;
+    transition: margin .5s ease-in-out;
+
+}
+
+#sidebar h1 {
+
+	margin: 0;
+	margin-top: 10%;
+	margin-bottom: 50%;
+	padding: 0;
+
+	color: #143F38;
+
+	font-family: "Allerta Stencil";
+	font-size: 2.2em;
+	font-weight: 700;
+
+	letter-spacing: .1em;
+
+	text-shadow: 0px 2px 0px #04CCA7;
+	text-align: center;
+
+}
+
+#nav {
+
+	margin: 0;
+	margin-left: 5%;
+	padding: 0;
+
+	list-style: none;
+
+}
+
+#nav a {
+
+	text-decoration: none;
+	color: #fff;
+
+}
+
+#nav a:hover {
+
+	color: #143F38;
+
+}
+
+#nav .active {
+
+	color: #143F38;
+
+}
+
+.navText { /*initially set the nav text to be hidden from the view and DOM */
+
+	display: none;
+
+}
+
+#nav .active .navText { /*when the active class is applied make the nav text visible */
+
+	display: block;
+
+	font-size: .7em;
+
+}
+
+#nav li {
+
+	width: 100%;
+
+	margin-bottom: 55%;
+
+	font-size: 1.5em;
+	font-weight: 100;
+
+	text-align: center;
+
+    -webkit-transition: color .2s ease-in-out;
+    -moz-transition: color .2s ease-in-out;
+    -o-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+
+}
+
+.tooltip {
+
+	position: relative;
+
+}
+
+.tooltip:hover:after {
+
+	position: absolute;
+	left: 120px;
+	bottom: 65px;
+
+	padding: 5px 15px;
+
+	background: #404040;
+/*	background: rgba(0,0,0,.9);*/
+	border-radius: 3px;
+
+	color: #fff;
+
+	content: attr(title);
+	
+	z-index: 98;
+
+}
+
+.tooltip:hover:before {
+
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid #404040;
+
+	bottom: 13px;
+	content: "";
+	left: 112px;
+	position: absolute;
+	z-index: 99;
+
+}
+
+#showNav {
+
+	display: none;
+
+	position: absolute;
+
+	top: 4%;
+	left: 60px;
+
+	color: #143F38;
+	font-size: 2em;
+
+}
+
+#showNav:hover {
+
+	color: #10332D;
+
+}
+
+#mainContent {
+
+	margin: 0;
+	padding: 0;
+
+	width: 100%;
+	height: 100%;
+
+}
+
+.catalogMark {
+
+	margin-left: 10%;
+	margin-top: 2%;
+	margin-bottom: 3%;
+
+	padding: 25px;
+
+	border-left: 10px solid #143F38;
+
+	background: #04BF9D;
+
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: 300;
+
+    -webkit-transition: margin-left 1s ease-in-out;
+    -moz-transition: margin-left 1s ease-in-out;
+    -o-transition: margin-left 1s ease-in-out;
+    transition: margin-left 1s ease-in-out;
+
+}
+
+#emptyCart {
+
+	border-left: 10px solid #751D28;
+
+	color: #fff;
+	font-size: 1em;
+	font-weight: 300;
+
+	background: #F53D54;
+
+}
+
+#emptyCart a {
+
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: 300;
+
+	text-decoration: none;
+
+}
+
+#emptyCart a i {
+
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+
+}
+
+#emptyCart a:hover i {
+
+	transform:rotate(180deg);
+	-ms-transform:rotate(180deg);
+	-webkit-transform:rotate(180deg);
+
+}
+
+.itemBlock {
+
+	margin: .5%;
+	margin-bottom: 3%;
+	padding: 10px 20px;
+
+	display: inline-block;
+
+	width: 200px;
+
+	background: #fff;
+
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+
+	-moz-box-shadow: inset 0 0 2px #888;
+	-webkit-box-shadow: inset 0 0 2px #888;
+	box-shadow: inset 0 0 2px #888;
+
+    -webkit-transition: background .2s ease-in-out;
+    -moz-transition: background .2s ease-in-out;
+    -o-transition: background .2s ease-in-out;
+    transition: background .2s ease-in-out;
+
+}
+
+.thumbnail {
+
+	margin: 0;
+	margin-left: 18%;
+
+	width: 125px;
+	height: 125px;
+	background-image: url(../img/bruce.jpg);
+	background-size: contain;
+	display: block;
+
+	border-radius: 75px;
+	-webkit-border-radius: 75px;
+	-moz-border-radius: 75px;
+
+}
+
+.itemInfo {
+
+	position: relative;
+
+	height: 190px;
+
+	overflow: scroll; /*If word count is too big for div, make it scrollable USABILITY ISSUE, WHAT IF THE DESCRIPTION IS LONGER, THE HEIGHTS WILL BE DIFFERENT*/
+}
+
+.itemInfo ul {
+
+	margin: 0;
+	margin-top: 10%;
+	margin-left: 5%;
+	padding: 0;
+
+	list-style: none;
+
+	font-size: .95em;
+	font-weight: 100;
+	color: #33332D;
+
+}
+
+.itemInfo li {
+
+	margin-bottom: 5%;
+
+}
+
+.addToCart {
+
+	display: none;
+
+	margin-left: -20px;
+	padding: 8%;
+	padding-left: 16%;
+
+	position: absolute;
+	top: 40%;
+	left: 0%;
+
+	text-decoration: none;
+
+	background: #04BF9D;
+
+	color: #fff;
+	font-size: 1.1em;
+
+	border-right: 10px solid #fff;
+
+    -webkit-transition: padding-left .2s ease-in-out;
+    -moz-transition: padding-left .2s ease-in-out;
+    -o-transition: padding-left .2s ease-in-out;
+    transition: padding-left .2s ease-in-out;
+
+}
+
+.addToCart:hover {
+
+	padding-left: 30%;
+
+}
+
+.removeFromCart:hover {
+
+	padding-left: 28%;
+
+}
+
+.itemBlock:hover {
+
+	background: rgba(64, 64, 64, .8);
+
+}
+
+.itemBlock:hover .addToCart, .itemBlock:hover .removeFromCart {
+
+	display: inline;
+
+}
+
+.itemBlock:hover .itemInfo ul {
+
+	visibility: hidden;
+
+}
+
+.removeFromCart {
+
+	display: none;
+
+	margin-left: -20px;
+	padding: 8%;
+	padding-left: 20%;
+
+	position: absolute;
+	top: 40%;
+	left: 0%;
+
+	text-decoration: none;
+
+	background: #DB374B;
+
+	color: #fff;
+	font-size: 1.1em;
+
+	border-right: 10px solid #fff;
+
+    -webkit-transition: padding-left .2s ease-in-out;
+    -moz-transition: padding-left .2s ease-in-out;
+    -o-transition: padding-left .2s ease-in-out;
+    transition: padding-left .2s ease-in-out;
+
+}
+
+.removeFromCart i {
+
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+
+}
+
+.removeFromCart:hover i {
+
+	transform:rotate(180deg);
+	-ms-transform:rotate(180deg);
+	-webkit-transform:rotate(180deg);
+
+}
+
+.itemBlock:hover .itemInfo ul {
+
+	visibility: hidden;
+
+}
+
+#loadMore { /*ANIMATE THIS TO SLIDE OUT TO THE LEFT WHEN THEY REACH THE BOTTOM */
+
+	cursor: pointer;
+
+	margin: 0 auto;
+	margin-top: 10%;
+
+	width: 40%;
+
+	padding: 25px;
+
+	background: rgba(245, 61, 84, .9);
+	color: #fff;
+	font-size: 1em;
+
+	-moz-box-shadow: inset 0 0 2px #888;
+	-webkit-box-shadow: inset 0 0 2px #888;
+	box-shadow: inner 0 0 2px #888;
+
+	border-radius: 3px;
+
+	text-align: center;
+	text-decoration: none;
+
+    -webkit-transition: background .1s ease-in-out;
+    -moz-transition: background .1s ease-in-out;
+    -o-transition: background .1s ease-in-out;
+    transition: background .1s ease-in-out;
+
+}
+
+#loadMore:hover {
+
+	background: rgba(245, 61, 84, .8);
+
+}
+
+#loadMore i {
+
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+
+}
+
+#loadMore:hover i {
+
+	transform:rotate(180deg);
+	-ms-transform:rotate(180deg);
+	-webkit-transform:rotate(180deg);
+
+}
+
+#addItemForm {
+
+	width: 100%;
+
+	margin: 5% auto;
+	margin-left: 0%;
+
+}
+
+#addItemForm input {
+
+	display: block;
+
+	outline: none;
+	border: none;
+
+	margin-bottom: 2%;
+
+	font-family: "Merriweather Sans";
+
+	font-weight: 100;
+	color: #33332D;
+
+}
+
+#addItemForm input[type="text"], #addItemForm input[type="password"], #addItemForm input[type="number"] {
+
+	width: 60%;
+
+	padding: 1.5%;
+
+	font-size: 1.1em;
+
+	-moz-box-shadow: inset 0 0 2px #888;
+	-webkit-box-shadow: inset 0 0 2px #888;
+	box-shadow: inset 0 0 2px #888;
+
+	border-left: 10px solid #F53D54;
+
+}
+
+#addItemForm input[type="number"] {
+
+	width: 30%;
+
+}
+
+#addItemForm input[type="file"] {
+
+	display: none;
+
+}
+
+#addItemForm input:focus, #addItemForm textarea:focus, #addItemForm label:hover ,#addItemForm label:active {
+
+	border-left: 10px solid #404040;
+
+}
+
+#addItemForm label {
+
+	cursor: pointer;
+
+	outline: none;
+	border: none;
+
+	display: inline-block;
+
+	margin-bottom: 2%;
+	padding: 1.5% 4%;
+	padding-left: 3%;
+
+	background: #fff;
+
+	font-family: "Merriweather Sans";
+	font-weight: 100;
+	color: #A9A9A9;
+	font-size: 1.1em;
+
+	border-left: 10px solid #F53D54;
+
+}
+
+#addItemForm label:hover i {
+
+	color: #404040;
+
+}
+
+#addItemForm textarea {
+
+	border: none;
+	outline: none;
+
+	margin-bottom: 2%;
+	padding: 1.5%;
+
+	width: 70%;
+
+	font-family: "Merriweather Sans";
+	font-size: 1.1em;
+	font-weight: 100;
+	color: #33332D;
+
+	-moz-box-shadow: inset 0 0 2px #888;
+	-webkit-box-shadow: inset 0 0 2px #888;
+	box-shadow: inset 0 0 2px #888;
+
+	border-left: 10px solid #F53D54;	
+
+}
+
+#addItemForm button {
+
+	cursor: pointer;
+
+	margin-top: 3%;
+	padding: 2% 4%;
+	padding-left: 3%;
+
+	outline: none;
+	border: none;
+	border-left: 10px solid #F53D54;
+
+	background: #fff;
+
+	font-family: "Merriweather Sans";
+	font-size: 1.1em;
+	font-weight: 100;
+	color: #F53D54;
+
+    -webkit-transition: padding-left .2s ease-in-out;
+    -moz-transition: padding-left .2s ease-in-out;
+    -o-transition: padding-left .2s ease-in-out;
+    transition: padding-left .2s ease-in-out;
+
+}
+
+#addItemForm button:hover {
+
+	padding-left: 8%;
+
+}
+
+#addItemForm button i {
+
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+
+}
+
+#addItemForm button:hover i {
+
+	transform:rotate(180deg);
+	-ms-transform:rotate(180deg);
+	-webkit-transform:rotate(180deg);
+
+}
+
+#addItemForm button[type="button"] {
+
+	margin-left: 5%;
+
+}
+
+#editItemTable {
+
+	margin: auto;
+	margin-left: 0;
+
+	width: 90%;
+
+	border-left: 10px solid #F53D54;
+
+	color: #33332D;
+
+	background: #fff;
+
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+
+	border-collapse: collapse; /*collapse all borders together, result in grid like look */
+
+}
+
+#editItemTable tr:nth-child(odd) {
+
+	background: #F7F7F7;
+
+}
+
+#editItemTable td, #editItemTable th {
+
+	-moz-box-shadow: inset 0 0 1px #888;
+	-webkit-box-shadow: inset 0 0 1px #888;
+	box-shadow: inset 0 0 1px #888;
+
+	padding: 22px;
+
+	text-align: left;
+
+}
+
+#editItemTable td a {
+
+	color: #0685CC;
+	text-decoration: none;
+
+}
+
+#editItemTable td a i  {
+
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+
+}
+
+#editItemTable td a:hover i {
+
+	transform:rotate(270deg);
+	-ms-transform:rotate(270deg);
+	-webkit-transform:rotate(270deg);
+
+}
+
+
+footer {
+
+	margin: 0;
+	margin-top: 5%;
+	padding: 2%;
+
+}
+
+
+
