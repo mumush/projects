@@ -17,17 +17,16 @@
 	}
 
 	//sanitize post value
-	$page_number = intval($_POST["page"]);
+	$pageNumber = intval($_POST["page"]);
 
-	$item_per_page = 5;
+	$itemPerPage = 5;
 
 	//get current starting point of records
-	$position = ($page_number * $item_per_page);
+	$position = ($pageNumber * $itemPerPage);
 
-	//Limit our results within a specified range. 
-	//$results = mysqli_query($connecDB,"SELECT * FROM products LIMIT $position, $item_per_page");
+	//Limit to 5 results per load more click and start from the last item loaded
 
-	if ( $stmt = $mysqli->prepare("SELECT * FROM products WHERE is_on_sale = FALSE ORDER BY id DESC LIMIT $position, $item_per_page") ) { //prepare statement
+	if ( $stmt = $mysqli->prepare("SELECT * FROM products WHERE is_on_sale = FALSE ORDER BY id DESC LIMIT $position, $itemPerPage") ) { //prepare statement
 
 		$stmt->execute();
 
@@ -63,9 +62,9 @@
 		//close statement
 		$stmt->close();
 
-		//close db connection
-		$mysqli->close();
-
 	}
+
+	//close db connection
+	$mysqli->close();
 
 ?>

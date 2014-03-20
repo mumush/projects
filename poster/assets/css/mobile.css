@@ -440,7 +440,7 @@ body {
 	cursor: pointer;
 
 	margin: 0 auto;
-	margin-top: 10%;
+	margin-top: 5%;
 
 	width: 40%;
 
@@ -650,7 +650,7 @@ body {
 
 }
 
-#addItemForm button[type="button"] {
+#addItemForm button[type="button"], #addItemForm button[type="clear"] {
 
 	margin-left: 5%;
 

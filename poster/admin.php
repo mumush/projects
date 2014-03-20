@@ -21,8 +21,8 @@
 			<label for="itemImage"><i class="fa fa-upload"></i> Select Image<input type="file" name="itemImage" id="itemImage"></label>
 			<input type="password" name="adminPass" placeholder="Admin Password" required>
 
-			<button type="submit"><i class="fa fa-plus-circle"></i> Add Item</button>
-			<button type="button"><i class="fa fa-times-circle"></i> Clear Form</button>
+			<button type="button"><i class="fa fa-plus-circle"></i> Add Item</button>
+			<button type="reset"><i class="fa fa-times-circle"></i> Clear Form</button>
 
 		</form>
 

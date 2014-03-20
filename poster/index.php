@@ -80,8 +80,6 @@
 			}
 		?>
 
-		<div id="results"></div>
-
 		<div id="loadMore">Click to load more <i class="fa fa-refresh"></i></div>
 
 

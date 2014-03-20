@@ -154,41 +154,36 @@
 
 	<script>
 
-		$(document).ready(function() {
+		//tracks number of user clicks on the load more button
+		var numClicks = 1;
 
-			//tracks number of user clicks on the load more button
-			var track_click = 0;
+		$("#loadMore").click(function() { //user clicks on button
 
-			$("#loadMore").click(function() { //user clicks on button
+		    //$(this).fadeOut(); //hide load more button on click
 
-			    //$(this).fadeOut(); //hide load more button on click
+	        //post page number and load returned data into result element
+	        $.post('assets/inc/lib.php',{ action: 'loadmore', 'page': numClicks }, function(data) {
 
-		        //post page number and load returned data into result element
-		        $.post('assets/inc/fetch_pages.php',{'page': track_click}, function(data) {
-		        
-		            //$("#loadMore").show(); //bring back load more button
-		            
-		            $("#results").append(data); //append data received from server
-		            
-		            //scroll page smoothly to button id
-		            $("html, body").animate({scrollTop: $("#loadMore").offset().top}, 500);
+	        	if( data === "" ) { //got nothing back, fade out button
 
-		            track_click++; //user click increment on load button
-		        
-		        }).fail(function(xhr, ajaxOptions, thrownError) { //any errors?
-		            alert(thrownError); //alert with HTTP error
-		            $(".load_more").show(); //bring back load more button
-		        });
-		        
-		        
-		        // if(track_click >= total_pages-1) //compare user click with page number
-		        // {
-		        //     //reached end of the page yet? disable load button
-		        //     $(".load_more").attr("disabled", "disabled");
-		        // }
-			      
-			});
+	        		$("#loadMore").html("No More Items <i class='fa fa-frown-o'></i>");
 
+	        		setTimeout(function(){ $("#loadMore").fadeOut(); },300); //wait half a second then fade button out
+
+	        	}
+	            
+	            $("#loadMore").before(data);
+	            
+	            //scroll page smoothly to button id
+	            $("html, body").animate({scrollTop: $(".itemBlock:nth-last-child(6)").offset().top}, 500);
+
+	            numClicks++; //increase number of clicks every time they click the button
+	        
+	        }).fail(function(xhr, ajaxOptions, thrownError) { //any errors?
+	            alert(thrownError); //alert with HTTP error
+	        });
+	        
+		      
 		});
 
 	</script>
