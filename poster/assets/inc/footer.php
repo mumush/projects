@@ -13,12 +13,29 @@
 
 	<script>
 
+	function scrollToTop() {
+
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+
 	function showFadeAlert(message, method) { //show alert message and then fade it out
 	//later add a param which is the success level to apply correct styling
 
 		console.log('method: ' + method + ' message: ' + message);
 
 		switch( method ) {
+
+			case "updateitem":
+
+				if( message == "success" ) {
+					$('#alert').text("Item Successfully Updated!");
+				}
+
+				if( message == "error" ) {
+					$('#alert').text("Uh-oh! Error Updating Item.");
+				}				
+
+				break;
 
 			case "additem":
 
@@ -242,6 +259,12 @@
 		      
 		});
 
+		$("#discardChanges").click(function() { //user clicks on button
+
+			$("#editDiv").slideUp("slow");
+
+		});
+
 
 		$(".editItemLink").click(function (event) { //user clicks on button
 
@@ -249,35 +272,83 @@
 
 			var itemDataID = $(this).data('id');
 
-	        // post page number and load returned data into result element
-	        // $.post('assets/inc/lib.php',{ action: 'additem', data: $('#addItemForm').serialize() }, function(data) {
 
-	        // 	if( data === "" ) { //got nothing back, fade out button
+	        $.post('assets/inc/lib.php',{ action: 'getitem', id: itemDataID }, function(data) {
 
-	        // 		console.log("Empty response");
+	        	if( data === "" ) { //got nothing back, fade out button
 
-	        // 		showFadeAlert("error", 'additem'); //run method to show an alert message and then fade it out
+	        		console.log("Empty response");
 
-	        // 	}
+	        		//showFadeAlert("error", 'getitem'); //run method to show an alert message and then fade it out
 
-	        // 	else { //we got something back
+	        	}
 
-		       //  	console.log(data);
+	        	else { //we got something back
 
-		       //  	$("#editItemTable").append(data);
+	        		var parsedData = JSON.parse(data); //parse the JSON into an object
 
-		       //  	$("#addItemForm").find("input, textarea").val("");
+		        	console.log(parsedData);
 
-		       //  	showFadeAlert("success", 'additem'); //run method to show an alert message and then fade it out
+		        	$("#editDiv input[name=editItemId]").val(parsedData[0].id);
+		        	$("#editDiv input[name=itemName]").val(parsedData[0].name);
+		        	$("#editDiv textarea[name=itemDesc]").val(parsedData[0].desc);
+		        	$("#editDiv input[name=itemPrice]").val(parsedData[0].price);
+		        	$("#editDiv input[name=itemQuant]").val(parsedData[0].quant);
+		        	$("#editDiv input[name=itemSalePrice]").val(parsedData[0].sale_price);
 
-	        // 	}
+					$("#editDiv").fadeIn();
 
+					$("html, body").animate({ scrollTop: 0 }, "slow");
 
-	            
+		        	//showFadeAlert("success", 'getitem'); //run method to show an alert message and then fade it out
+
+	        	}
 	        
-	        // }).fail(function(xhr, ajaxOptions, thrownError) { //any errors
-	        //     showFadeAlert("error", 'additem'); //run method to show an alert message and then fade it out
-	        // });
+	        }).fail(function(xhr, ajaxOptions, thrownError) { //any errors
+	            //showFadeAlert("error", 'getitem'); //run method to show an alert message and then fade it out
+	        });
+	        
+		      
+		});
+
+
+		$("#updateItemButton").click(function (event) { //user clicks on button
+
+			event.preventDefault();
+
+			var itemID = $("#editItemId").val();
+
+			console.log(itemID);
+
+	        $.post('assets/inc/lib.php',{ action: 'updateitem', id: itemID, data: $('#editItemForm').serialize() }, function(data) {
+
+	        	if( data === "" ) { //got nothing back, fade out button
+
+	        		console.log("Empty response");
+
+	        		showFadeAlert("error", 'updateitem'); //run method to show an alert message and then fade it out
+
+	        	}
+
+	        	else { //we got something back
+
+	        		console.log(data);
+
+	        		var nameInput = $("#editItemForm input[name=itemName]").val();
+	        		var descInput = $("#editItemForm textarea[name=itemDesc]").val();
+
+	        		$("#editItemTable .editItemLink[data-id='" + itemID + "']").closest("tr").find("td:first-child").text(nameInput);
+	        		$("#editItemTable .editItemLink[data-id='" + itemID + "']").closest("tr").find("td:nth-child(2)").text(descInput);
+
+	        		showFadeAlert("success", 'updateitem'); //run method to show an alert message and then fade it out
+
+	        		$("#editDiv").slideUp("slow");
+
+	        	}
+	        
+	        }).fail(function(xhr, ajaxOptions, thrownError) { //any errors
+	            showFadeAlert("error", 'updateitem'); //run method to show an alert message and then fade it out
+	        });
 	        
 		      
 		});

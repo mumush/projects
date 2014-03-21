@@ -12,6 +12,30 @@
 
 		switch( $action ) { //use the command pattern
 
+			case 'updateitem':
+
+				$formData = $_POST['data'];
+
+				parse_str($formData, $formArray);
+
+				if( $formArray['adminPass'] == "poster" ) {
+
+					$finalResult = updateItem($_POST['id'], $formArray['itemName'], $formArray['itemDesc'], $formArray['itemPrice'], $formArray['itemQuant'], $formArray['itemSalePrice']);
+
+					echo json_encode($finalResult);
+
+				}
+
+				break;
+
+			case 'getitem':
+
+				$finalResult = getItem($_POST['id']);
+
+				echo json_encode($finalResult);
+
+				break;
+
 			case 'additem':
 
 				$formData = $_POST['data'];
@@ -102,6 +126,107 @@
 				break;
 
 		}
+
+	}
+
+	function updateItem($_id, $_name, $_desc, $_price, $_quant, $_sale_price) {
+
+		// MAKE DB CONNECTION
+		$db_host = "localhost";
+		$db_user = "root";
+		$db_pass = "root";
+		$db_name = "poster";
+
+		//connect to db
+		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
+
+		if ( $mysqli -> connect_error){
+
+			echo "connection error: " . $mysqli->connect_error;
+
+			die();
+		}
+
+		if ( $stmt = $mysqli->prepare("UPDATE products SET name=?, description=?, price=?, quantity=?, sale_price=? WHERE id = $_id") ) { //prepare statement
+
+			$stmt->bind_param("sssis", $name, $desc, $price, $quant, $sale_price);
+
+			$name = $_name;
+			$desc = $_desc;
+			$price = $_price;
+			$quant = $_quant;
+			$sale_price = $_sale_price;
+
+			$stmt->execute();
+
+			//close statement
+			$stmt->close();
+
+			//close db connection
+			$mysqli->close();
+
+			//send the view an array that can be manipulated accordingly
+			return 'success';
+		}
+
+		else {
+			return 'error';
+		}
+
+
+	}
+
+
+	function getItem($id) {
+
+		// MAKE DB CONNECTION
+		$db_host = "localhost";
+		$db_user = "root";
+		$db_pass = "root";
+		$db_name = "poster";
+
+		//connect to db
+		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
+
+		if ( $mysqli -> connect_error){
+
+			echo "connection error: " . $mysqli->connect_error;
+
+			die();
+		}
+
+		if ( $stmt = $mysqli->prepare("SELECT * FROM products WHERE id = $id") ) { //prepare statement
+
+			$stmt->execute();
+
+			//bind the variables to the statement
+			$stmt->bind_result($id, $name, $desc, $price, $quant, $img_name, $sale_price, $on_sale, $in_cart, $quant_in_cart);
+
+			//an array of associative arrays which will each be an item in the products table
+			$resultArray = array();
+
+			//fetch the values
+			while ( $stmt->fetch() ) {
+
+				//create an associative array for this row item
+				$rowArray = array( "id" => $id, "name" => $name, "desc" => $desc, "price" => $price, 
+					"quant" => $quant, "img_name" => $img_name, "sale_price" => $sale_price, "on_sale" => $on_sale, "in_cart" => $in_cart, "quant_in_cart" => $quant_in_cart);
+
+				//add this array to the result array
+				array_push($resultArray, $rowArray);
+
+			}
+
+			//close statement
+			$stmt->close();
+
+			//send the view an array that can be manipulated accordingly
+			return $resultArray;
+
+		}
+
+		//close db connection
+		$mysqli->close();
 
 	}
 

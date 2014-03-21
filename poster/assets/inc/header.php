@@ -35,6 +35,9 @@
 				title="Admin"><li><i class="fa fa-user fa-2x"></i><span class="navText">Admin</span></li></a>
 
 				<a href="#" class="tooltip" id="hideNav" title="Hide" onclick="hideNav();"><li><i class="fa fa-outdent fa-2x"></i></li></a>
+
+				<a href="#" class="tooltip" id="scrollTop" title="Top" onclick="scrollToTop();"><li><i class="fa fa-arrow-circle-o-up fa-2x"></i></li></a>
+
 			</ul>
 		</nav>
 

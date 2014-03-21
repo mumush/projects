@@ -489,7 +489,13 @@ body {
 
 }
 
-#addItemForm {
+#editDiv {
+
+	display: none;
+	
+}
+
+#addItemForm, #editItemForm {
 
 	width: 100%;
 
@@ -498,7 +504,7 @@ body {
 
 }
 
-#addItemForm input {
+#addItemForm input, #editItemForm input {
 
 	display: block;
 
@@ -514,7 +520,8 @@ body {
 
 }
 
-#addItemForm input[type="text"], #addItemForm input[type="password"], #addItemForm input[type="number"] {
+#addItemForm input[type="text"], #addItemForm input[type="password"], #addItemForm input[type="number"], 
+#editItemForm input[type="text"], #editItemForm input[type="password"], #editItemForm input[type="number"] {
 
 	width: 60%;
 
@@ -530,25 +537,26 @@ body {
 
 }
 
-#addItemForm input[type="number"] {
+#addItemForm input[type="number"], #editItemForm input[type="number"] {
 
 	width: 30%;
 
 }
 
-#addItemForm input[type="file"] {
+#addItemForm input[type="file"], #editItemForm input[type="file"] {
 
 	display: none;
 
 }
 
-#addItemForm input:focus, #addItemForm textarea:focus, #addItemForm label:hover ,#addItemForm label:active {
+#addItemForm input:focus, #addItemForm textarea:focus, #addItemForm label:hover ,#addItemForm label:active, 
+#editItemForm input:focus, #editItemForm textarea:focus, #editItemForm label:hover ,#editItemForm label:active {
 
 	border-left: 10px solid #404040;
 
 }
 
-#addItemForm label {
+#addItemForm label, #editItemForm label {
 
 	cursor: pointer;
 
@@ -572,13 +580,13 @@ body {
 
 }
 
-#addItemForm label:hover i {
+#addItemForm label:hover i, #editItemForm label:hover i {
 
 	color: #404040;
 
 }
 
-#addItemForm textarea {
+#addItemForm textarea, #editItemForm textarea {
 
 	border: none;
 	outline: none;
@@ -601,11 +609,12 @@ body {
 
 }
 
-#addItemForm button {
+#addItemForm button, #editItemForm button {
 
 	cursor: pointer;
 
 	margin-top: 3%;
+	margin-right: 5%;
 	padding: 2% 4%;
 	padding-left: 3%;
 
@@ -627,13 +636,13 @@ body {
 
 }
 
-#addItemForm button:hover {
+#addItemForm button:hover, #editItemForm button:hover {
 
 	padding-left: 8%;
 
 }
 
-#addItemForm button i {
+#addItemForm button i, #editItemForm button i {
 
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
@@ -642,17 +651,11 @@ body {
 
 }
 
-#addItemForm button:hover i {
+#addItemForm button:hover i, #editItemForm button:hover i {
 
 	transform:rotate(180deg);
 	-ms-transform:rotate(180deg);
 	-webkit-transform:rotate(180deg);
-
-}
-
-#addItemForm button {
-
-	margin-right: 5%;
 
 }
 
