@@ -13,6 +13,24 @@
 
 	<script>
 
+
+	$( document ).ready(function() {
+
+		$(window).scroll(function() {
+
+			if( $(window).scrollTop() > 500 ) {
+				$("#scrollTop").fadeIn("slow");
+			}
+
+			else {
+				$("#scrollTop").fadeOut("slow");
+			}
+
+		});
+
+	});
+
+
 	function scrollToTop() {
 
 		$("html, body").animate({ scrollTop: 0 }, "slow");
@@ -23,16 +41,24 @@
 
 		console.log('method: ' + method + ' message: ' + message);
 
+		$('#alert').removeClass(); //clear the alert of all of its existing classes
+
 		switch( method ) {
 
 			case "updateitem":
 
 				if( message == "success" ) {
-					$('#alert').text("Item Successfully Updated!");
+
+					$('#alert').addClass('alert-success');
+
+					$('#alert').html("<i class='fa fa-thumbs-up'></i> Item Successfully Updated!");
 				}
 
 				if( message == "error" ) {
-					$('#alert').text("Uh-oh! Error Updating Item.");
+
+					$('#alert').addClass('alert-error');
+
+					$('#alert').html("<i class='fa fa-thumbs-down'></i> Uh-oh! Error Updating Item.");
 				}				
 
 				break;
@@ -40,11 +66,18 @@
 			case "additem":
 
 				if( message == "success" ) {
-					$('#alert').text("Item Added to Catalog!");
+
+					$('#alert').addClass('alert-success');
+
+					$('#alert').html("<i class='fa fa-thumbs-up'></i> Item Added to Catalog!");
 				}
 
 				if( message == "error" ) {
-					$('#alert').text("Uh-oh! Error Adding Item to Catalog.");
+
+					$('#alert').addClass('alert-error');
+
+					$('#alert').html("<i class='fa fa-thumbs-down'></i> Uh-oh! Error Adding Item to Catalog.");
+
 				}
 
 				break;
@@ -52,11 +85,17 @@
 			case "addtocart":
 
 				if( message == "success" ) {
-					$('#alert').text("Item Added to Cart!");
+
+					$('#alert').addClass('alert-success');
+
+					$('#alert').html("<i class='fa fa-thumbs-up'></i> Item Added to Cart!");
 				}
 
 				if( message == "error" ) {
-					$('#alert').text("Uh-oh! Error Adding Item to Cart.");
+
+					$('#alert').addClass('alert-error');
+
+					$('#alert').html("<i class='fa fa-thumbs-down'></i> Uh-oh! Error Adding Item to Cart.");
 				}
 
 				break;
@@ -64,11 +103,18 @@
 			case "removefromcart":
 
 				if( message == "success" ) {
-					$('#alert').text("Item Removed from Cart!");
+
+					$('#alert').addClass('alert-success');
+
+					$('#alert').html("<i class='fa fa-thumbs-up'></i> Item Removed from Cart!");
+
 				}
 				
 				if( message == "error" ) {
-					$('#alert').text("Uh-oh! Error Removing Item from Cart.");
+
+					$('#alert').addClass('alert-error');
+
+					$('#alert').html("<i class='fa fa-thumbs-down'></i> Uh-oh! Error Removing Item from Cart.");
 				}
 
 				break;
@@ -142,11 +188,19 @@
 
 			console.log(resultMessage);
 
-			$(".addToCart[data-id='" + itemDataID + "']").prev().fadeIn();
-
 			showFadeAlert(resultMessage['status'], 'addtocart'); //run method to show an alert message and then fade it out
 
-			setTimeout(function(){ location.reload(true); },500); //reload page
+			var list = $(".addToCart[data-id='" + itemDataID + "']").next();
+
+			var inStockString = list.find(".inStock").text();
+
+			var inStockArray = inStockString.split(" ");
+
+			var newStock = parseInt(inStockArray[2]) - 1;
+
+			console.log(inStockArray[2]);
+
+			list.find(".inStock").text("In Stock: " + newStock);
 
 		});
 
@@ -171,9 +225,37 @@
 
 			$(".removeFromCart[data-id='" + itemDataID + "']").closest(".itemBlock").fadeOut();
 
+			var list = $(".removeFromCart[data-id='" + itemDataID + "']").next();
+
+			var itemPriceString = list.find(".itemPrice").text();
+
+			var itemPriceArray = itemPriceString.split(" ");
+
+			var itemPriceNum = itemPriceArray[1].replace("$", "");
+
+			//use this price to subtrace from the total below
+			itemPriceNum = parseFloat(itemPriceNum);
+
+
+
 			showFadeAlert(resultMessage['status'], 'removefromcart'); //run method to show an alert message and then fade it out
 
-			setTimeout(function(){ location.reload(true); },500); //reload page
+			//setTimeout(function(){ location.reload(true); },500); //reload page
+
+			var cartTotalString =  $("#cartTotal").text();
+
+			var cartTotalArray = cartTotalString.split(" ");
+
+			var cartNumTotal = cartTotalArray[2].replace("$", "");
+
+			//total amount in the cart
+			cartNumTotal = parseFloat(cartNumTotal);
+
+			cartNumTotal = cartNumTotal - itemPriceNum;
+
+			$("#cartTotal").text(" Total: $" + cartNumTotal);
+
+			console.log(cartNumTotal);
 
 		});
 

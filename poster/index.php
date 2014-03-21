@@ -30,7 +30,7 @@
 							<?php
 								echo '<li>' . $item['name'] . '<li>';
 								echo '<li>Sale: $' . $item['sale_price'] . '<li>';
-								echo '<li>In Stock: ' . $item['quant'] . '<li>';
+								echo '<li class="inStock">In Stock: ' . $item['quant'] . '<li>';
 								echo '<li>' . $item['desc'] . '<li>';
 							?>
 						</ul>

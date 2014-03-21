@@ -34,19 +34,19 @@
 
 								if( $item['on_sale'] == TRUE ) {
 
-									echo '<li>Sale: $' . $item['sale_price'] . '<li>';
+									echo '<li class="itemPrice">Sale: $' . $item['sale_price'] . '<li>';
 
 									$cartTotal = $cartTotal + floatval($item['sale_price']) * $item['quant_in_cart'];
 
 								}
 								else {
 
-									echo '<li>Price: $' . $item['price'] . '<li>';
+									echo '<li class="itemPrice">Price: $' . $item['price'] . '<li>';
 
 									$cartTotal = $cartTotal + floatval($item['price']) * $item['quant_in_cart'];
 
 								}
-								
+								echo '<li>In Stock: ' . $item['quant'] . '<li>';
 								echo '<li>In Cart: ' . $item['quant_in_cart'] . '<li>';
 								echo '<li>' . $item['desc'] . '<li>';
 							?>
@@ -61,7 +61,7 @@
 		?>
 
 
-		<div class="catalogMark"><i class="fa fa-tasks"></i> Total: <?php echo "$" . $cartTotal; ?></div>
+		<div class="catalogMark" id="cartTotal" ><i class="fa fa-tasks"></i> Total: <?php echo "$" . $cartTotal; ?></div>
 
 		<div class="catalogMark" id="emptyCart"><a href="#"><i class="fa fa-trash-o"></i> Empty Cart</a></div>
 

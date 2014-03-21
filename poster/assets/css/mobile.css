@@ -180,6 +180,11 @@ body {
 
 }
 
+#scrollTop {
+
+	display: none;
+}
+
 #mainContent {
 
 	margin: 0;
@@ -719,6 +724,38 @@ body {
 	transform:rotate(270deg);
 	-ms-transform:rotate(270deg);
 	-webkit-transform:rotate(270deg);
+
+}
+
+#alert {
+
+	display: none;
+
+	margin-left: 10%;
+	margin-top: 2%;
+	margin-bottom: 3%;
+
+	padding: 25px;
+
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: 100;
+
+}
+
+.alert-success {
+
+	border-left: 10px solid #fff;
+
+	background: #0083CC;
+
+}
+
+.alert-error {
+
+	border-left: 10px solid #fff;
+
+	background: #C74936;
 
 }
 

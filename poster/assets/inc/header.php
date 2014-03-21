@@ -47,4 +47,4 @@
 
 	<div id="mainContent">
 
-		<div id="alert"></div>
+		<div id="alert">Error! Item Was Not Added to Cart</div>

@@ -131,21 +131,7 @@
 
 	function updateItem($_id, $_name, $_desc, $_price, $_quant, $_sale_price) {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		if ( $stmt = $mysqli->prepare("UPDATE products SET name=?, description=?, price=?, quantity=?, sale_price=? WHERE id = $_id") ) { //prepare statement
 
@@ -179,21 +165,7 @@
 
 	function getItem($id) {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		if ( $stmt = $mysqli->prepare("SELECT * FROM products WHERE id = $id") ) { //prepare statement
 
@@ -233,21 +205,7 @@
 
 	function addItem($_name, $_desc, $_price, $_quant, $_sale_price) {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		if ( $stmt = $mysqli->prepare("INSERT INTO products (name, description, price, quantity, sale_price) VALUES (?, ?, ?, ?, ?)") ) { //prepare statement
 
@@ -280,21 +238,7 @@
 
 	function loadMore($pageNum) {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		//sanitize post value
 		$pageNumber = intval($pageNum);
@@ -351,21 +295,7 @@
 
 	function increaseQuantityOnHand( $itemId ) {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		if ( $stmt = $mysqli->prepare("UPDATE products SET quantity=quantity+1 WHERE id = $itemId") ) { //prepare statement
 
@@ -389,21 +319,7 @@
 
 	function increaseQuantityInCart( $itemId ) {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		if ( $stmt = $mysqli->prepare("UPDATE products SET quant_in_cart=quant_in_cart+1 WHERE id = $itemId") ) { //prepare statement
 
@@ -427,21 +343,7 @@
 
 	function decreaseQuantityOnHand( $itemId ) {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		if ( $stmt = $mysqli->prepare("UPDATE products SET quantity=quantity-1 WHERE id = $itemId") ) { //prepare statement
 
@@ -465,21 +367,7 @@
 
 	function decreaseQuantityInCart( $itemId ) {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		if ( $stmt = $mysqli->prepare("UPDATE products SET quant_in_cart=quant_in_cart-1 WHERE id = $itemId") ) { //prepare statement
 
@@ -503,21 +391,7 @@
 
 	function addItemToCart( $itemId ) {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		if ( $stmt = $mysqli->prepare("UPDATE products SET in_cart=TRUE WHERE id = $itemId") ) { //prepare statement
 
@@ -541,21 +415,7 @@
 
 	function removeItemFromCart( $itemId ) {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		if ( $stmt = $mysqli->prepare("UPDATE products SET in_cart=FALSE WHERE id = $itemId") ) { //prepare statement
 
@@ -579,21 +439,7 @@
 
 	function emptyCart( $items ) {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		if ( $stmt = $mysqli->prepare("UPDATE products SET in_cart=FALSE, quantity=quantity+quant_in_cart, quant_in_cart=0 WHERE id IN ($items)") ) { //prepare statement
 
@@ -618,21 +464,7 @@
 
 	function getCartItems() {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		if ( $stmt = $mysqli->prepare("SELECT * FROM products WHERE in_cart = TRUE") ) { //prepare statement
 
@@ -672,21 +504,7 @@
 
 	function getSaleItems() {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		if ( $stmt = $mysqli->prepare("SELECT * FROM products WHERE is_on_sale = TRUE") ) { //prepare statement
 
@@ -725,21 +543,7 @@
 
 	function getItems() {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		if ( $stmt = $mysqli->prepare("SELECT * FROM products WHERE is_on_sale = FALSE ORDER BY id DESC LIMIT 5") ) { //prepare statement
 
@@ -779,21 +583,7 @@
 
 	function getAllItems() {
 
-		// MAKE DB CONNECTION
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "root";
-		$db_name = "poster";
-
-		//connect to db
-		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
-
-		if ( $mysqli -> connect_error){
-
-			echo "connection error: " . $mysqli->connect_error;
-
-			die();
-		}
+		include ("connect.php");
 
 		if ( $stmt = $mysqli->prepare("SELECT * FROM products") ) { //prepare statement
 
