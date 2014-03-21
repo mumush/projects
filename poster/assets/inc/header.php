@@ -34,16 +34,16 @@
 					<?php if($currentPage == "admin" ) { echo "class='tooltip active'";} else { echo "class='tooltip'";} ?>
 				title="Admin"><li><i class="fa fa-user fa-2x"></i><span class="navText">Admin</span></li></a>
 
-				<a href="#" class="tooltip" id="hideNav" title="Hide" onclick="hideNav();"><li><i class="fa fa-outdent fa-2x"></i></li></a>
+				<a href="#" class="tooltip" id="hideNav" title="Hide" onclick="hideNav(); return false;"><li><i class="fa fa-outdent fa-2x"></i></li></a>
 
-				<a href="#" class="tooltip" id="scrollTop" title="Top" onclick="scrollToTop();"><li><i class="fa fa-arrow-circle-o-up fa-2x"></i></li></a>
+				<a href="#" class="tooltip" id="scrollTop" title="Top" onclick="scrollToTop(); return false;"><li><i class="fa fa-arrow-circle-o-up fa-2x"></i></li></a>
 
 			</ul>
 		</nav>
 
 	</header>
 
-	<a href="#" id="showNav" onclick="showNav();"><i class="fa fa-align-right"></i></a>
+	<a href="#" id="showNav" onclick="showNav(); return false;"><i class="fa fa-align-right"></i></a>
 
 	<div id="mainContent">
 
