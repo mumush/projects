@@ -20,6 +20,18 @@
 
 		switch( method ) {
 
+			case "additem":
+
+				if( message == "success" ) {
+					$('#alert').text("Item Added to Catalog!");
+				}
+
+				if( message == "error" ) {
+					$('#alert').text("Uh-oh! Error Adding Item to Catalog.");
+				}
+
+				break;
+
 			case "addtocart":
 
 				if( message == "success" ) {
@@ -171,13 +183,18 @@
 	        		setTimeout(function(){ $("#loadMore").fadeOut(); },300); //wait half a second then fade button out
 
 	        	}
-	            
-	            $("#loadMore").before(data);
-	            
-	            //scroll page smoothly to button id
-	            $("html, body").animate({scrollTop: $(".itemBlock:nth-last-child(6)").offset().top}, 500);
 
-	            numClicks++; //increase number of clicks every time they click the button
+	        	else { //we got something back
+
+		            $("#loadMore").before(data);
+		            
+		            //scroll page smoothly to button id
+		            $("html, body").animate({scrollTop: $(".itemBlock:nth-last-child(6)").offset().top}, 500);
+
+		            numClicks++; //increase number of clicks every time they click the button
+
+	        	}
+	            
 	        
 	        }).fail(function(xhr, ajaxOptions, thrownError) { //any errors?
 	            alert(thrownError); //alert with HTTP error
@@ -186,7 +203,88 @@
 		      
 		});
 
+		$("#addItemButton").click(function (event) { //user clicks on button
+
+			//VALIDATE WITH JAVASCRIPT
+
+			event.preventDefault();
+
+	        // post page number and load returned data into result element
+	        $.post('assets/inc/lib.php',{ action: 'additem', data: $('#addItemForm').serialize() }, function(data) {
+
+	        	if( data === "" ) { //got nothing back, fade out button
+
+	        		console.log("Empty response");
+
+	        		showFadeAlert("error", 'additem'); //run method to show an alert message and then fade it out
+
+	        	}
+
+	        	else { //we got something back
+
+		        	console.log(data);
+
+		        	$("#editItemTable").append(data);
+
+		        	$("#addItemForm").find("input, textarea").val("");
+
+		        	showFadeAlert("success", 'additem'); //run method to show an alert message and then fade it out
+
+	        	}
+
+
+	            
+	        
+	        }).fail(function(xhr, ajaxOptions, thrownError) { //any errors
+	            showFadeAlert("error", 'additem'); //run method to show an alert message and then fade it out
+	        });
+	        
+		      
+		});
+
+
+		$(".editItemLink").click(function (event) { //user clicks on button
+
+			event.preventDefault();
+
+			var itemDataID = $(this).data('id');
+
+	        // post page number and load returned data into result element
+	        // $.post('assets/inc/lib.php',{ action: 'additem', data: $('#addItemForm').serialize() }, function(data) {
+
+	        // 	if( data === "" ) { //got nothing back, fade out button
+
+	        // 		console.log("Empty response");
+
+	        // 		showFadeAlert("error", 'additem'); //run method to show an alert message and then fade it out
+
+	        // 	}
+
+	        // 	else { //we got something back
+
+		       //  	console.log(data);
+
+		       //  	$("#editItemTable").append(data);
+
+		       //  	$("#addItemForm").find("input, textarea").val("");
+
+		       //  	showFadeAlert("success", 'additem'); //run method to show an alert message and then fade it out
+
+	        // 	}
+
+
+	            
+	        
+	        // }).fail(function(xhr, ajaxOptions, thrownError) { //any errors
+	        //     showFadeAlert("error", 'additem'); //run method to show an alert message and then fade it out
+	        // });
+	        
+		      
+		});
+
+
 	</script>
+
 
 
 </body>

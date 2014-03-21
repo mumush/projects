@@ -12,6 +12,20 @@
 
 		switch( $action ) { //use the command pattern
 
+			case 'additem':
+
+				$formData = $_POST['data'];
+
+				parse_str($formData, $formArray);
+
+				if( $formArray['adminPass'] == "poster" ) {
+
+					addItem($formArray['itemName'], $formArray['itemDesc'], $formArray['itemPrice'], $formArray['itemQuant'], $formArray['itemSalePrice']);
+
+				}
+
+				break;
+
 			case 'loadmore':
 
 				loadMore($_POST['page']);
@@ -91,6 +105,52 @@
 
 	}
 
+
+	function addItem($_name, $_desc, $_price, $_quant, $_sale_price) {
+
+		// MAKE DB CONNECTION
+		$db_host = "localhost";
+		$db_user = "root";
+		$db_pass = "root";
+		$db_name = "poster";
+
+		//connect to db
+		$mysqli = new mysqli( $db_host, $db_user, $db_pass, $db_name);
+
+		if ( $mysqli -> connect_error){
+
+			echo "connection error: " . $mysqli->connect_error;
+
+			die();
+		}
+
+		if ( $stmt = $mysqli->prepare("INSERT INTO products (name, description, price, quantity, sale_price) VALUES (?, ?, ?, ?, ?)") ) { //prepare statement
+
+			$stmt->bind_param("sssis", $name, $desc, $price, $quant, $sale_price);
+
+			$name = $_name;
+			$desc = $_desc;
+			$price = $_price;
+			$quant = $_quant;
+			$sale_price = $_sale_price;
+
+			$stmt->execute();
+
+			echo "<tr>";
+				echo "<td>" . $name . "</td>";
+				echo "<td>" . $desc . "</td>";
+				echo "<td><a href='#' class='editItemLink' " . "data-id='" . $mysqli->insert_id . "' ><i class='fa fa-pencil'></i> Edit</a></td>";
+			echo "</tr>";
+
+			//close statement
+			$stmt->close();
+
+		}
+
+		//close db connection
+		$mysqli->close();
+
+	}
 
 
 	function loadMore($pageNum) {

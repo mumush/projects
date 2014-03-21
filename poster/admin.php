@@ -18,10 +18,10 @@
 			<input type="text" name="itemPrice" placeholder="Price of Item" required>
 			<input type="number" name="itemQuant" placeholder="Number of Items Available" required>
 			<input type="text" name="itemSalePrice" placeholder="Sale Price" required>
-			<label for="itemImage"><i class="fa fa-upload"></i> Select Image<input type="file" name="itemImage" id="itemImage"></label>
+			<!-- <label for="itemImage"><i class="fa fa-upload"></i> Select Image<input type="file" name="itemImage" id="itemImage"></label> -->
 			<input type="password" name="adminPass" placeholder="Admin Password" required>
 
-			<button type="button"><i class="fa fa-plus-circle"></i> Add Item</button>
+			<button type="submit" id="addItemButton"><i class="fa fa-plus-circle"></i> Add Item</button>
 			<button type="reset"><i class="fa fa-times-circle"></i> Clear Form</button>
 
 		</form>
@@ -41,14 +41,16 @@
 
 			$allItems = getAllItems();
 
-			foreach( $allItems as $item ) { ?>
+			foreach( $allItems as $item ) { 
+
+				$itemDataString = 'data-id="' . $item['id'] . '"'; ?>
 
 				<tr>
 					<?php
 						echo '<td>' . $item['name'] . '</td>';
 						echo '<td>' . $item['desc'] . '</td>';
 					?>
-					<td><a href="#"><i class="fa fa-pencil"></i> Edit</a></td>
+					<td><a href="#" class="editItemLink" <?php echo $itemDataString; ?>><i class="fa fa-pencil"></i> Edit</a></td>
 				</tr>
 
 			<?php

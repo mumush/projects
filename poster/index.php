@@ -7,7 +7,6 @@
 	include ("assets/inc/header.php");
 
 ?>
-		
 
 		<div class="catalogMark"><i class="fa fa-certificate"></i> On Sale</div>
 

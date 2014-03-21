@@ -650,9 +650,9 @@ body {
 
 }
 
-#addItemForm button[type="button"], #addItemForm button[type="clear"] {
+#addItemForm button {
 
-	margin-left: 5%;
+	margin-right: 5%;
 
 }
 
