@@ -20,18 +20,38 @@
 
 				<div class="itemBlock">
 
-					<div class="thumbnail"></div>
+					<?php $imagePath = "assets/img/" . $item['img_name'] . ".png"; ?>
+
+					<img src="<?php echo $imagePath; ?>" alt="<?php echo $item['name']; ?>" />
 
 					<div class="itemInfo">
 
-						<a href="#" class="addToCart" <?php echo $itemDataString; ?>><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+						<?php
+
+							if( $item['in_cart'] == FALSE ) { ?>
+
+								<a href="#" class="addToCart" <?php echo $itemDataString; ?>><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+
+								<?php
+							}
+
+							else { ?>
+
+								<i class="fa fa-shopping-cart"></i>
+
+							<?php
+
+							}
+
+						?>
 
 						<ul>
 							<?php
-								echo '<li>' . $item['name'] . '<li>';
-								echo '<li>Sale: $' . $item['sale_price'] . '<li>';
-								echo '<li class="inStock">In Stock: ' . $item['quant'] . '<li>';
-								echo '<li>' . $item['desc'] . '<li>';
+								echo '<li>' . $item['name'] . '</li>';
+								echo '<li>Sale Price: $' . $item['sale_price'] . '</li>';
+								echo '<li>Original Price: $' . $item['price'] . '</li>';
+								echo '<li class="inStock">In Stock: ' . $item['quant'] . '</li>';
+								echo '<li>' . $item['desc'] . '</li>';
 							?>
 						</ul>
 					</div>
@@ -56,18 +76,37 @@
 
 				<div class="itemBlock">
 
-					<div class="thumbnail"></div>
+					<?php $imagePath = "assets/img/" . $item['img_name'] . ".png"; ?>
+
+					<img src="<?php echo $imagePath; ?>" alt="<?php echo $item['name']; ?>" />
 
 					<div class="itemInfo">
 
-						<a href="#" class="addToCart" <?php echo $itemDataString; ?>><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+						<?php
+
+							if( $item['in_cart'] == FALSE ) { ?>
+
+								<a href="#" class="addToCart" <?php echo $itemDataString; ?>><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+
+								<?php
+							}
+
+							else { ?>
+
+								<i class="fa fa-shopping-cart"></i>
+
+							<?php
+
+							}
+
+						?>
 
 						<ul>
 							<?php
-								echo '<li>' . $item['name'] . '<li>';
-								echo '<li>Price: $' . $item['price'] . '<li>';
-								echo '<li>In Stock: ' . $item['quant'] . '<li>';
-								echo '<li>' . $item['desc'] . '<li>';
+								echo '<li>' . $item['name'] . '</li>';
+								echo '<li>Price: $' . $item['price'] . '</li>';
+								echo '<li class="inStock">In Stock: ' . $item['quant'] . '</li>';
+								echo '<li>' . $item['desc'] . '</li>';
 							?>
 						</ul>
 					</div>

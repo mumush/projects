@@ -1,66 +1,107 @@
 <?php
 
-	//MAKE DB CONNECTION
-	// $db_host = "localhost";
-	// $db_user = "rch4495";
-	// $db_pass = "Mumush1037";
-	// $db_name = "rch4495";
-
+	//every time an ajax call is made, this script is posted to
+	//use the command pattern and send an action POST variable which describes what needs to be
+	//executed, then call the necessary functions and break out of the switch
 	if( isset($_POST['action']) && !empty($_POST['action']) ) {
 
 		$action = $_POST['action'];
 
-		switch( $action ) { //use the command pattern
+		switch( $action ) { //utilize command pattern
 
-			case 'updateitem':
+			case 'updateitem': //UPDATE a specific item with supplied values
 
+				//get the serialized form data from the POST variable named data
 				$formData = $_POST['data'];
 
+				//parse the serialized string into an array to be used below
 				parse_str($formData, $formArray);
 
-				if( $formArray['adminPass'] == "poster" ) {
+				if($formArray['onSale']) { //if the on sale button has been checked
 
-					$finalResult = updateItem($_POST['id'], $formArray['itemName'], $formArray['itemDesc'], $formArray['itemPrice'], $formArray['itemQuant'], $formArray['itemSalePrice']);
+					//make sure password is valid before inserting item 
+					if( $formArray['adminPass'] == "poster" ) {
 
+						//update the item based on the associated id
+						$finalResult = updateItem($_POST['id'], $formArray['itemName'], $formArray['itemDesc'], $formArray['itemPrice'], $formArray['itemQuant'], $formArray['itemSalePrice'], 1);
+
+						//echo back a result message
+						echo json_encode($finalResult);
+
+					}
+
+				}
+
+				else {
+
+					//make sure password is valid before inserting item 
+					if( $formArray['adminPass'] == "poster" ) {
+
+					//update the item based on the associated id
+					$finalResult = updateItem($_POST['id'], $formArray['itemName'], $formArray['itemDesc'], $formArray['itemPrice'], $formArray['itemQuant'], $formArray['itemSalePrice'], 0);
+
+					//echo back a result message
 					echo json_encode($finalResult);
+
+					}
 
 				}
 
 				break;
 
-			case 'getitem':
+			case 'getitem': //SELECT a specific item
 
 				$finalResult = getItem($_POST['id']);
 
+				//echo back an array which is the affected row from the select, and JSON encode it
 				echo json_encode($finalResult);
 
 				break;
 
-			case 'additem':
+			case 'additem': //INSERT an item into the table
 
+				//get the posted form data from the POST variable data
 				$formData = $_POST['data'];
 
+				//parse the serialized string and convert it to an array
 				parse_str($formData, $formArray);
 
-				if( $formArray['adminPass'] == "poster" ) {
+				if($formArray['onSale']) { //if the on sale button has been checked
 
-					addItem($formArray['itemName'], $formArray['itemDesc'], $formArray['itemPrice'], $formArray['itemQuant'], $formArray['itemSalePrice']);
+					//make sure password is valid before inserting item 
+					if( $formArray['adminPass'] == "poster" ) {
+
+						addItem($formArray['itemName'], $formArray['itemDesc'], $formArray['itemPrice'], $formArray['itemQuant'], $formArray['itemSalePrice'], 1);
+
+					}
+
+				}
+
+				else {
+
+					//make sure password is valid before inserting item 
+					if( $formArray['adminPass'] == "poster" ) {
+
+						addItem($formArray['itemName'], $formArray['itemDesc'], $formArray['itemPrice'], $formArray['itemQuant'], $formArray['itemSalePrice'], 0);
+
+					}
 
 				}
 
 				break;
 
-			case 'loadmore':
+			case 'loadmore': //SELECT the next 5 items
 
+				//based on the passed in page number, echo back the next 5 items
 				loadMore($_POST['page']);
 
 				break;
 
-			case 'emptycart':
+			case 'emptycart': //UPDATE items passed in and setting their in_cart values to false
 
 				$emptyResult = emptyCart( $_POST['items'] ); //empty the items currently in the cart
 
-				if( $emptyResult == 'success') {
+				if( $emptyResult == 'success') { //pass success message
 
 					$finalResult = array('status' => 'success');
 
@@ -129,19 +170,20 @@
 
 	}
 
-	function updateItem($_id, $_name, $_desc, $_price, $_quant, $_sale_price) {
+	function updateItem($_id, $_name, $_desc, $_price, $_quant, $_sale_price, $_on_sale) {
 
 		include ("connect.php");
 
-		if ( $stmt = $mysqli->prepare("UPDATE products SET name=?, description=?, price=?, quantity=?, sale_price=? WHERE id = $_id") ) { //prepare statement
+		if ( $stmt = $mysqli->prepare("UPDATE products SET name=?, description=?, price=?, quantity=?, sale_price=?, is_on_sale=? WHERE id = $_id") ) { //prepare statement
 
-			$stmt->bind_param("sssis", $name, $desc, $price, $quant, $sale_price);
+			$stmt->bind_param("sssiss", $name, $desc, $price, $quant, $sale_price, $on_sale);
 
 			$name = $_name;
 			$desc = $_desc;
 			$price = $_price;
 			$quant = $_quant;
 			$sale_price = $_sale_price;
+			$on_sale = $_on_sale;
 
 			$stmt->execute();
 
@@ -203,19 +245,20 @@
 	}
 
 
-	function addItem($_name, $_desc, $_price, $_quant, $_sale_price) {
+	function addItem($_name, $_desc, $_price, $_quant, $_sale_price, $_on_sale) {
 
 		include ("connect.php");
 
-		if ( $stmt = $mysqli->prepare("INSERT INTO products (name, description, price, quantity, sale_price) VALUES (?, ?, ?, ?, ?)") ) { //prepare statement
+		if ( $stmt = $mysqli->prepare("INSERT INTO products (name, description, price, quantity, sale_price, is_on_sale) VALUES (?, ?, ?, ?, ?, ?)") ) { //prepare statement
 
-			$stmt->bind_param("sssis", $name, $desc, $price, $quant, $sale_price);
+			$stmt->bind_param("sssiss", $name, $desc, $price, $quant, $sale_price, $on_sale);
 
 			$name = $_name;
 			$desc = $_desc;
 			$price = $_price;
 			$quant = $_quant;
 			$sale_price = $_sale_price;
+			$on_sale = $_on_sale;
 
 			$stmt->execute();
 
@@ -264,7 +307,9 @@
 
 				echo "<div class='itemBlock'>";
 
-					echo "<div class='thumbnail'></div>";
+					$imagePath = "assets/img/" . $img_name . ".png";
+
+					echo "<img src='" . $imagePath . "' " . "alt='" . $name . "' />";
 
 					echo "<div class='itemInfo'>";
 

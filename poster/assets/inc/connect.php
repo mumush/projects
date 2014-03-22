@@ -1,5 +1,13 @@
 <?php
 
+
+	//MAKE DB CONNECTION
+	// $db_host = "localhost";
+	// $db_user = "rch4495";
+	// $db_pass = "Mumush1037";
+	// $db_name = "rch4495";
+
+
 	// MAKE DB CONNECTION
 	$db_host = "localhost";
 	$db_user = "root";

@@ -19,6 +19,7 @@
 				<textarea rows="3" name="itemDesc" placeholder="Short Description of Item" required></textarea>
 				<input type="text" name="itemPrice" placeholder="Price of Item" required>
 				<input type="number" name="itemQuant" placeholder="Number of Items Available" required>
+				<label for="onSaleEdit">Mark On Sale <i class="fa fa-arrow-circle-o-right"></i></label><input type="checkbox" name="onSale" id="onSaleEdit" value="onSale">
 				<input type="text" name="itemSalePrice" placeholder="Sale Price" required>
 				<!-- <label for="itemImage"><i class="fa fa-upload"></i> Select Image<input type="file" name="itemImage" id="itemImage"></label> -->
 				<input type="password" name="adminPass" placeholder="Admin Password" required>
@@ -39,6 +40,7 @@
 			<textarea rows="3" name="itemDesc" placeholder="Short Description of Item" required></textarea>
 			<input type="text" name="itemPrice" placeholder="Price of Item" required>
 			<input type="number" name="itemQuant" placeholder="Number of Items Available" required>
+			<label for="onSaleAdd">Mark On Sale <i class="fa fa-arrow-circle-o-right"></i></label><input type="checkbox" name="onSale" id="onSaleAdd" value="onSale">
 			<input type="text" name="itemSalePrice" placeholder="Sale Price" required>
 			<!-- <label for="itemImage"><i class="fa fa-upload"></i> Select Image<input type="file" name="itemImage" id="itemImage"></label> -->
 			<input type="password" name="adminPass" placeholder="Admin Password" required>
