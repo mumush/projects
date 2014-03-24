@@ -22,7 +22,10 @@
 
 				<div class="itemBlock">
 
-					<div class="thumbnail"></div>
+					<?php $imagePath = "assets/img/" . $item['img_name'] . ".png"; ?>
+
+					<img src="<?php echo $imagePath; ?>" alt="<?php echo $item['name']; ?>" />
+					
 
 					<div class="itemInfo">
 

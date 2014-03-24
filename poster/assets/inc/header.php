@@ -18,7 +18,7 @@
 
 	<header id="sidebar">
 		
-		<h1><i class="fa fa-picture-o"></i>.er</h1>
+		<h1><a href="index.php"><i class="fa fa-picture-o"></i>.er</a></h1>
 
 		<nav>
 			<ul id="nav">

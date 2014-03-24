@@ -17,22 +17,34 @@
 				//parse the serialized string into an array to be used below
 				parse_str($formData, $formArray);
 
-				if($formArray['onSale']) { //if the on sale button has been checked
+				if( isset($formArray['onSale']) ) { //if the on sale button has been checked
 
-					//make sure password is valid before inserting item 
-					if( $formArray['adminPass'] == "poster" ) {
+					$numOnSale = getNumOnSale(); //returns number of items where on_sale = TRUE
 
-						//update the item based on the associated id
-						$finalResult = updateItem($_POST['id'], $formArray['itemName'], $formArray['itemDesc'], $formArray['itemPrice'], $formArray['itemQuant'], $formArray['itemSalePrice'], 1);
+					if( $numOnSale <= 4 ) { //if the number of items on sale is not greater than 5
 
-						//echo back a result message
-						echo json_encode($finalResult);
+						//make sure password is valid before inserting item 
+						if( $formArray['adminPass'] == "poster" ) {
+
+							//update the item based on the associated id
+							$finalResult = updateItem($_POST['id'], $formArray['itemName'], $formArray['itemDesc'], $formArray['itemPrice'], $formArray['itemQuant'], $formArray['itemSalePrice'], 1);
+
+							//echo back a result message
+							echo json_encode($finalResult);
+
+						}
+
+					}
+
+					else {
+
+						echo ""; //send back an empty string alerting js of an error
 
 					}
 
 				}
 
-				else {
+				else { //on sale has not been checked
 
 					//make sure password is valid before inserting item 
 					if( $formArray['adminPass'] == "poster" ) {
@@ -66,18 +78,30 @@
 				//parse the serialized string and convert it to an array
 				parse_str($formData, $formArray);
 
-				if($formArray['onSale']) { //if the on sale button has been checked
+				if( isset($formArray['onSale']) ) { //if the on sale button has been checked
 
-					//make sure password is valid before inserting item 
-					if( $formArray['adminPass'] == "poster" ) {
+					$numOnSale = getNumOnSale(); //returns number of items where on_sale = TRUE
 
-						addItem($formArray['itemName'], $formArray['itemDesc'], $formArray['itemPrice'], $formArray['itemQuant'], $formArray['itemSalePrice'], 1);
+					if( $numOnSale <= 4 ) { //if the number of items on sale is not greater than 5
+
+						//make sure password is valid before inserting item 
+						if( $formArray['adminPass'] == "poster" ) {
+
+							addItem($formArray['itemName'], $formArray['itemDesc'], $formArray['itemPrice'], $formArray['itemQuant'], $formArray['itemSalePrice'], 1);
+
+						}
+
+					}
+
+					else {
+
+						echo ""; //send back an empty string alerting js of an error
 
 					}
 
 				}
 
-				else {
+				else { //item hasn't been checked as on sale
 
 					//make sure password is valid before inserting item 
 					if( $formArray['adminPass'] == "poster" ) {
@@ -121,20 +145,30 @@
 				
 				$decQuantResult = decreaseQuantityOnHand( $_POST['id'] ); //decrement the quantity of the item available
 
-				$incQuantInCartResult = increaseQuantityInCart( $_POST['id'] ); //increase the quantity of this item in the cart
+				if( $decQuantResult == 'success' ) {
 
-				$addCartResult = addItemToCart( $_POST['id'] );
+					$incQuantInCartResult = increaseQuantityInCart( $_POST['id'] ); //increase the quantity of this item in the cart
 
-				if( $decQuantResult == 'success' && $incQuantInCartResult == 'success' && $addCartResult == 'success' ) {
+					$addCartResult = addItemToCart( $_POST['id'] );
 
-					$finalResult = array('status' => 'success');
+					if( $incQuantInCartResult == 'success' && $addCartResult == 'success' ) {
+
+						$finalResult = array('status' => 'success');
+
+					}
+
+					else {
+
+						$finalResult = array('status' => 'error');
+
+					}
 
 				}
 
 				else {
 
 					$finalResult = array('status' => 'error');
-
+					
 				}
 
 				echo json_encode($finalResult);
@@ -165,6 +199,33 @@
 				echo json_encode($finalResult);
 
 				break;
+
+		}
+
+	}
+
+
+	function getNumOnSale() {
+
+		include ("connect.php");
+
+		if ( $stmt = $mysqli->prepare("SELECT id FROM products WHERE is_on_sale = TRUE") ) { //prepare statement
+
+			$stmt->execute();
+
+			$stmt->store_result();
+
+
+			$rowCount = $stmt->num_rows;
+
+			//close statement
+			$stmt->close();
+
+			//close db connection
+			$mysqli->close();
+
+			//send back the number of items on sale
+			return $rowCount;
 
 		}
 
@@ -389,6 +450,33 @@
 	function decreaseQuantityOnHand( $itemId ) {
 
 		include ("connect.php");
+
+		//make sure the quantity is > 0
+
+		if ( $stmt = $mysqli->prepare("SELECT quantity FROM products WHERE id = $itemId") ) { //prepare statement
+
+			$stmt->execute();
+
+			//bind the variables to the statement
+			$stmt->bind_result($quantity);
+
+
+			$quantInHand;
+
+			//fetch the values
+			while ( $stmt->fetch() ) {
+
+				$quantInHand = $quantity;
+
+			}
+
+			if( $quantInHand == 0 ) { //if its equal to 0, return an error and stop the execution of further code
+
+				return 'error';
+
+			}
+
+		}
 
 		if ( $stmt = $mysqli->prepare("UPDATE products SET quantity=quantity-1 WHERE id = $itemId") ) { //prepare statement
 

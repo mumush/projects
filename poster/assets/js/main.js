@@ -59,7 +59,7 @@ function showFadeAlert(message, method) { //show alert message and then fade it 
 
 				$('#alert').addClass('alert-error');
 
-				$('#alert').html("<i class='fa fa-thumbs-down'></i> Uh-oh! Error Updating Item.");
+				$('#alert').html("<i class='fa fa-thumbs-down'></i> Uh-oh! Error Updating Item.  Remember, Only Five Items Can Be On Sale At A Time.");
 			}				
 
 			break;
@@ -77,7 +77,7 @@ function showFadeAlert(message, method) { //show alert message and then fade it 
 
 				$('#alert').addClass('alert-error');
 
-				$('#alert').html("<i class='fa fa-thumbs-down'></i> Uh-oh! Error Adding Item to Catalog.");
+				$('#alert').html("<i class='fa fa-thumbs-down'></i> Uh-oh! Error Adding Item to Catalog.  Remember, Only Five Items Can Be On Sale At A Time.");
 
 			}
 
@@ -199,12 +199,16 @@ $( '.addToCart' ).click(function() { //on click run the ajax call
 
 		var inStockArray = inStockString.split(" ");
 
-		var newStock = parseInt(inStockArray[2]) - 1;
+		if( parseInt(inStockArray[2]) != 0 ) { //if the in stock is still larger than zero, decrement this temporary variable
 
-		console.log(inStockArray[2]);
+			var newStock = parseInt(inStockArray[2]) - 1;
 
-		list.find(".inStock").text("In Stock: " + newStock); //change the in stock value temporarily to reflect the item added to the cart
-															 //upon a new page load the item will get this same value but from the DB
+			console.log(inStockArray[2]);
+
+			list.find(".inStock").text("In Stock: " + newStock); //change the in stock value temporarily to reflect the item added to the cart
+																 //upon a new page load the item will get this same value but from the DB
+
+		}
 
 	});
 
@@ -306,6 +310,14 @@ $("#addItemButton").click(function (event) { //user clicks on button
 
     // post page number and load returned data into result element
     $.post('assets/inc/lib.php',{ action: 'additem', data: $('#addItemForm').serialize() }, function(data) {
+
+    	//validate form input
+    	$('#addItemForm *').filter(':input[type="text"]').each(function() {
+
+    		console.log(this.value);
+
+    	});
+
 
     	if( data === "" ) { //got nothing back, fade out button
 

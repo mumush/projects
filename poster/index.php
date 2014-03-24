@@ -39,6 +39,8 @@
 
 								<i class="fa fa-shopping-cart"></i>
 
+								<a href="#" class="inCart"><i class="fa fa-check-circle-o"></i> Item In Cart</a>
+
 							<?php
 
 							}

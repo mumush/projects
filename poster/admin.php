@@ -12,7 +12,7 @@
 
 			<div class="catalogMark"><i class="fa fa-pencil-square-o"></i> Edit Item</div>
 
-			<form id="editItemForm" name="editItemForm" action="#" method="post" enctype="multipart/form-data"> <!--IS NOT POSTING ANYWHERE YET!!!!!!!!-->
+			<form id="editItemForm" name="editItemForm" action="#" method="post" enctype="multipart/form-data">
 
 				<input name="editItemId" id="editItemId" type="hidden">
 				<input type="text" name="itemName" placeholder="Your Poster Name Here" required>
@@ -21,7 +21,6 @@
 				<input type="number" name="itemQuant" placeholder="Number of Items Available" required>
 				<label for="onSaleEdit">Mark On Sale <i class="fa fa-arrow-circle-o-right"></i></label><input type="checkbox" name="onSale" id="onSaleEdit" value="onSale">
 				<input type="text" name="itemSalePrice" placeholder="Sale Price" required>
-				<!-- <label for="itemImage"><i class="fa fa-upload"></i> Select Image<input type="file" name="itemImage" id="itemImage"></label> -->
 				<input type="password" name="adminPass" placeholder="Admin Password" required>
 
 				<button type="submit" id="updateItemButton"><i class="fa fa-check-circle"></i> Update Item</button>
@@ -34,7 +33,7 @@
 
 		<div class="catalogMark"><i class="fa fa-plus-circle"></i> Add Item</div>
 
-		<form id="addItemForm" name="addItemForm" action="#" method="post" enctype="multipart/form-data"> <!--IS NOT POSTING ANYWHERE YET!!!!!!!!-->
+		<form id="addItemForm" name="addItemForm" action="#" method="post" enctype="multipart/form-data">
 
 			<input type="text" name="itemName" placeholder="Your Poster Name Here" required>
 			<textarea rows="3" name="itemDesc" placeholder="Short Description of Item" required></textarea>
@@ -42,7 +41,6 @@
 			<input type="number" name="itemQuant" placeholder="Number of Items Available" required>
 			<label for="onSaleAdd">Mark On Sale <i class="fa fa-arrow-circle-o-right"></i></label><input type="checkbox" name="onSale" id="onSaleAdd" value="onSale">
 			<input type="text" name="itemSalePrice" placeholder="Sale Price" required>
-			<!-- <label for="itemImage"><i class="fa fa-upload"></i> Select Image<input type="file" name="itemImage" id="itemImage"></label> -->
 			<input type="password" name="adminPass" placeholder="Admin Password" required>
 
 			<button type="submit" id="addItemButton"><i class="fa fa-plus-circle"></i> Add Item</button>
