@@ -629,7 +629,7 @@ body {
 
 }
 
-#addItemForm input[type="checkbox"] {
+#addItemForm input[type="checkbox"], #editItemForm input[type="checkbox"] {
 
 	display: inline;
 
