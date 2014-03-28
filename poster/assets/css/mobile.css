@@ -274,6 +274,10 @@ body {
 
 	width: 200px;
 
+	height: 350px;
+
+	overflow: scroll; /*If word count is too big for div, make it scrollable USABILITY ISSUE, WHAT IF THE DESCRIPTION IS LONGER, THE HEIGHTS WILL BE DIFFERENT*/
+
 	background: #fff;
 
 	border-radius: 3px;
@@ -309,10 +313,6 @@ body {
 .itemInfo {
 
 	position: relative;
-
-	height: 190px;
-
-	overflow: scroll; /*If word count is too big for div, make it scrollable USABILITY ISSUE, WHAT IF THE DESCRIPTION IS LONGER, THE HEIGHTS WILL BE DIFFERENT*/
 
 	color: #33332D;
 }
