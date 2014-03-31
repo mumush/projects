@@ -488,6 +488,15 @@ function hideNav() {
 		document.body.style.paddingLeft = '50px';
 
 	}, 350);
+
+	var posterMark = document.getElementsByClassName("posterMark")[0];
+
+	setTimeout(function(){
+
+		posterMark.style.display = "block";
+
+	}, 350);
+
 	
 	setTimeout(function() { //show the nav toggle
 
@@ -498,6 +507,10 @@ function hideNav() {
 }
 
 function showNav() {
+
+	var posterMark = document.getElementsByClassName("posterMark")[0];
+
+	posterMark.style.display = "none";
 
 	document.body.style.paddingLeft = '190px';
 

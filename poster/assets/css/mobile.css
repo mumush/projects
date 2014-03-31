@@ -202,6 +202,32 @@ body {
 
 }
 
+.posterMark {
+
+	display: none;
+
+	margin-left: 12%;
+	margin-top: 2%;
+	margin-bottom: 3%;
+
+	padding: 20px;
+
+	border-left: 10px solid #04BF9D;
+
+	background: #fff;
+
+	color: #04BF9D;
+	font-size: 2.5em;
+	font-weight: 100;
+	font-family: "Fauna One";
+
+    -webkit-transition: margin-left 1s ease-in-out;
+    -moz-transition: margin-left 1s ease-in-out;
+    -o-transition: margin-left 1s ease-in-out;
+    transition: margin-left 1s ease-in-out;
+
+}
+
 .catalogMark {
 
 	margin-left: 10%;

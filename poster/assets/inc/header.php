@@ -8,6 +8,8 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans|Allerta+Stencil' rel='stylesheet' type='text/css'>
 
+	<link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
+
 	<link rel="stylesheet" type="text/css" href="assets/css/mobile.css">
 
 	<title>Post.er</title>
@@ -46,5 +48,7 @@
 	<a href="#" id="showNav" onclick="showNav(); return false;"><i class="fa fa-align-right"></i></a>
 
 	<div id="mainContent">
+
+		<div class="posterMark">post.er</div>
 
 		<div id="alert">Error! Item Was Not Added to Cart</div>
