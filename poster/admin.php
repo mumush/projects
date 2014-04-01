@@ -82,7 +82,6 @@
 			?>
 
 		</table>
-
 		
 
 	<?php include("assets/inc/footer.php"); ?>

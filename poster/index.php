@@ -30,7 +30,7 @@
 
 							if( $item['in_cart'] == FALSE ) { ?>
 
-								<a href="#" class="addToCart" <?php echo $itemDataString; ?>><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+								<button class="addToCart" <?php echo $itemDataString; ?>><i class="fa fa-shopping-cart"></i> Add to Cart</button>
 
 								<?php
 							}
@@ -39,7 +39,7 @@
 
 								<i class="fa fa-shopping-cart"></i>
 
-								<a href="#" class="inCart"><i class="fa fa-check-circle-o"></i> Item In Cart</a>
+								<button class="inCart"><i class="fa fa-check-circle-o"></i> Item In Cart</button>
 
 							<?php
 
@@ -88,7 +88,7 @@
 
 							if( $item['in_cart'] == FALSE ) { ?>
 
-								<a href="#" class="addToCart" <?php echo $itemDataString; ?>><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+								<button class="addToCart" <?php echo $itemDataString; ?>><i class="fa fa-shopping-cart"></i> Add to Cart</button>
 
 								<?php
 							}
@@ -96,6 +96,8 @@
 							else { ?>
 
 								<i class="fa fa-shopping-cart"></i>
+
+								<button class="inCart"><i class="fa fa-check-circle-o"></i> Item In Cart</button>
 
 							<?php
 

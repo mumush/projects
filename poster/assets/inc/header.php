@@ -6,9 +6,7 @@
 
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
-	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans|Allerta+Stencil' rel='stylesheet' type='text/css'>
-
-	<link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Fauna+One|Merriweather+Sans|Allerta+Stencil' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" type="text/css" href="assets/css/mobile.css">
 
@@ -51,4 +49,5 @@
 
 		<div class="posterMark">post.er</div>
 
-		<div id="alert">Error! Item Was Not Added to Cart</div>
+		<div id="alert"></div>
+		

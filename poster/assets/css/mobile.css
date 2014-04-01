@@ -263,7 +263,14 @@ body {
 
 }
 
-#emptyCart a {
+#emptyCart button {
+
+	outline: none;
+	border: none;
+
+	background: none;
+
+	cursor: pointer;
 
 	color: #fff;
 	font-size: 1.2em;
@@ -273,7 +280,7 @@ body {
 
 }
 
-#emptyCart a i {
+#emptyCart button i {
 
     -webkit-transition: all .5s ease-in-out;
     -moz-transition: all .5s ease-in-out;
@@ -282,7 +289,7 @@ body {
 
 }
 
-#emptyCart a:hover i {
+#emptyCart button:hover i {
 
 	transform:rotate(180deg);
 	-ms-transform:rotate(180deg);
@@ -366,9 +373,12 @@ body {
 
 .inCart {
 
-	cursor: default;
-
 	display: none;
+
+	outline: none;
+	border: none;
+
+	cursor: default;
 
 	margin-left: -20px;
 	padding: 8%;
@@ -393,7 +403,12 @@ body {
 
 	display: none;
 
-	margin-left: -10px;
+	outline: none;
+	border: none;
+
+	cursor: pointer;
+
+	margin-left: -20px;
 	padding: 8%;
 	padding-left: 16%;
 
@@ -419,7 +434,7 @@ body {
 
 .addToCart:hover {
 
-	padding-left: 30%;
+	padding-left: 32%;
 
 }
 
@@ -431,7 +446,9 @@ body {
 
 .itemBlock:hover {
 
-	background: rgba(64, 64, 64, .8);
+/*	background: rgba(64, 64, 64, .8);*/
+
+	background: rgba(64, 64, 64, .5);
 
 }
 
@@ -457,9 +474,14 @@ body {
 
 	display: none;
 
+	outline: none;
+	border: none;
+
+	cursor: pointer;
+
 	margin-left: -20px;
 	padding: 8%;
-	padding-left: 20%;
+	padding-left: 14%;
 
 	position: absolute;
 	top: 40%;
@@ -515,15 +537,11 @@ body {
 
 	padding: 25px;
 
-	background: rgba(245, 61, 84, .9);
+	background: rgba(245, 61, 84, 1);
 	color: #fff;
 	font-size: 1em;
 
-	-moz-box-shadow: inset 0 0 2px #888;
-	-webkit-box-shadow: inset 0 0 2px #888;
-	box-shadow: inner 0 0 2px #888;
-
-	border-radius: 3px;
+	border-radius: 2px;
 
 	text-align: center;
 	text-decoration: none;
@@ -537,7 +555,7 @@ body {
 
 #loadMore:hover {
 
-	background: rgba(245, 61, 84, .8);
+	background: rgba(245, 61, 84, .95);
 
 }
 
@@ -857,6 +875,48 @@ footer {
 .creditLink:hover {
 
 	text-decoration: underline;
+
+}
+
+
+
+@media all and (max-width: 943px) {
+
+	body {
+		padding-left: 60px;
+	}
+
+	#sidebar {
+		display: none;
+	}
+
+	#showNav {
+		display: block;
+	}
+
+	.posterMark {
+		display: block;
+	}
+
+}
+
+@media all and (min-width: 943px) {
+
+	body {
+		padding-left: 190px;
+	}
+
+	#sidebar {
+		display: block;
+	}
+
+	#showNav {
+		display: none;
+	}
+
+	.posterMark {
+		display: none;
+	}
 
 }
 

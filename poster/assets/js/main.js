@@ -174,7 +174,7 @@ $( '#emptyCart' ).click(function() { //on click run the ajax call
 });
 
 
-$( '.addToCart' ).click(function() { //on click run the ajax call
+$( '#mainContent' ).on( "click", ".addToCart", function() { //on click run the ajax call
 
 	console.log( $(this).data('id') );
 
@@ -203,7 +203,7 @@ $( '.addToCart' ).click(function() { //on click run the ajax call
 
 			var newStock = parseInt(inStockArray[2]) - 1;
 
-			console.log(inStockArray[2]);
+			console.log(newStock);
 
 			list.find(".inStock").text("In Stock: " + newStock); //change the in stock value temporarily to reflect the item added to the cart
 																 //upon a new page load the item will get this same value but from the DB
@@ -527,5 +527,5 @@ function showNav() {
 
 	}, 120);
 
-
 }
+

@@ -29,7 +29,7 @@
 
 					<div class="itemInfo">
 
-						<a href="#" class="removeFromCart" <?php echo $itemDataString; ?>><i class="fa fa-minus-circle"></i> Remove Item</a>
+						<button class="removeFromCart" <?php echo $itemDataString; ?>><i class="fa fa-minus-circle"></i> Remove Item</button>
 
 						<ul>
 							<?php
@@ -66,7 +66,7 @@
 
 		<div class="catalogMark" id="cartTotal"><i class="fa fa-tasks"></i> Total: <?php echo "$" . $cartTotal; ?></div>
 
-		<div class="catalogMark" id="emptyCart"><a href="#"><i class="fa fa-trash-o"></i> Empty Cart</a></div>
+		<div class="catalogMark" id="emptyCart"><button><i class="fa fa-trash-o"></i> Empty Cart</button></div>
 
 
 	<?php include("assets/inc/footer.php"); ?>

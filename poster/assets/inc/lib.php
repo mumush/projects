@@ -374,13 +374,25 @@
 
 					echo "<div class='itemInfo'>";
 
-						echo "<a href='#'' class='addToCart' " . $itemDataString . " ><i class='fa fa-shopping-cart'></i> Add to Cart</a>";
+						if( $in_cart == FALSE ) {
+
+							echo "<button class='addToCart' " . $itemDataString . " ><i class='fa fa-shopping-cart'></i> Add to Cart</button>";
+
+						}
+
+						else {
+
+							echo "<i class='fa fa-shopping-cart'></i>";
+
+							echo "<button class='inCart'><i class='fa fa-check-circle-o'></i> Item In Cart</button>";
+
+						}
 
 						echo "<ul>";
-								echo '<li>' . $name . '<li>';
-								echo '<li>Price: $' . $price . '<li>';
-								echo '<li>In Stock: ' . $quant . '<li>';
-								echo '<li>' . $desc . '<li>';
+								echo '<li>' . $name . '</li>';
+								echo '<li>Price: $' . $price . '</li>';
+								echo '<li class="inStock">In Stock: ' . $quant . '</li>';
+								echo '<li>' . $desc . '</li>';
 						echo "</ul>";
 
 					echo "</div>";
