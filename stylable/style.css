@@ -73,6 +73,24 @@ header h1 {
 
 }
 
+.instructions {
+
+	margin: 4% auto;
+
+	text-align: center;
+
+	font-size: 1.7em;
+
+}
+
+.instructions:last-child {
+
+	margin: 0;
+
+	font-size: 3em;
+
+}
+
 .sandboxPar {
 
 	font-family: 'Roboto';

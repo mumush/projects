@@ -38,7 +38,7 @@ function validateStyles(element, property, value, points) {
 
     validateInterval = setInterval(function(){  //every 2 seconds check their styling
 
-        console.log('validating styling...');
+        // console.log('validating styling...');
 
         if( $(element).css(property) == value ) { //in this case, value is the rgb value of the color red rgb(255, 0, 0) not 'red'
 
@@ -55,7 +55,7 @@ function validateStyles(element, property, value, points) {
             $('#totalPoints').text(newPointCount); //set the inner text of the totalPoints span to the newly added count
 
 
-            clearInterval(interval); //break out of the interval if the right style is applied
+            clearInterval(validateInterval); //break out of the interval if the right style is applied
 
             getNewTask(); //run get new task, rinse and repeat
 
@@ -74,7 +74,7 @@ function getNewTask() {
     clearInterval(gameTimer);
 
     //restart the countdown
-    countdown(5);
+    countdown(30);
 
     $.get( "tasks.php", { action: "getTask" } )
         .done(function( data ) {
