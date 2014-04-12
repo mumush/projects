@@ -1,28 +1,30 @@
-var timerId = null;
+var gameTimer; //in game counter
+var validateInterval; //style validation interval
 
-function countdown() {
+//counts down from the supplied value in seconds to 0
+function countdown(counter) {
 
-    document.getElementById('timerID').innerHTML = 'Ready, set, go!';
-
-    var count = 30;
-    timerId = setInterval(function() {
+    count = counter;
+    gameTimer = setInterval(function() {
 
         count--;
 
-        // console.log(count);
-
-        document.getElementById('timerID').innerHTML = count;
+        $('#timer').text(count);
 
         if( count === 0 ) {
 
-            clearInterval(timerId);
+            clearInterval(validateInterval); //break out of validation interval bc time is up
 
-            document.getElementById('timerID').innerHTML = 'Out of time!';
+            clearInterval(gameTimer); //clear this interval
+
+            $('#timer').text('Out of time!');
 
         }
     }, 1000);
 
 }
+
+
 
 //runs on an interval every 2 secs which checks if the right styles have been applied based on the
 //task in the header...
@@ -34,11 +36,13 @@ function validateStyles(element, property, value, points) {
     console.log('Value of correct ' + property + ': ' + value);
     console.log( 'Current value of ' + property + ': ' + $(element).css(property) );
 
-    var interval = setInterval(function(){  //every 2 seconds check their styling
+    validateInterval = setInterval(function(){  //every 2 seconds check their styling
+
+        console.log('validating styling...');
 
         if( $(element).css(property) == value ) { //in this case, value is the rgb value of the color red rgb(255, 0, 0) not 'red'
 
-            console.log('Correct!');
+            $('#timer').text('Correct!'); //tell the user they got something right!
 
             $('style').text(''); //clear the internal stylesheet for next question
 
@@ -66,6 +70,12 @@ function validateStyles(element, property, value, points) {
 //called at the start of the game, or after the user has applied the correct style
 function getNewTask() {
 
+    //clear the main game time interval
+    clearInterval(gameTimer);
+
+    //restart the countdown
+    countdown(5);
+
     $.get( "tasks.php", { action: "getTask" } )
         .done(function( data ) {
 
@@ -83,4 +93,10 @@ function getNewTask() {
 
 }
 
-getNewTask();
+$( "#timer" ).click(function() { //on click of the begin text, start the game
+
+    $('#timer').text('Ready, set, go!');
+
+    getNewTask();
+
+});
