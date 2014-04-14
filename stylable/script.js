@@ -19,6 +19,15 @@ function countdown(counter) {
 
             $('#timer').text('Out of time!');
 
+            setTimeout(function() {
+
+                $('#timer').text('Play Again');
+
+                $( "#timer" ).on( "click", startGame );
+                $("#timer").css('cursor', 'pointer');
+
+            }, 1500);
+
         }
     }, 1000);
 
@@ -93,10 +102,39 @@ function getNewTask() {
 
 }
 
-$( "#timer" ).click(function() { //on click of the begin text, start the game
+function startGame() {
 
     $('#timer').text('Ready, set, go!');
 
+    $("#timer").off(); //remove on click event handler
+    $("#timer").css('cursor', 'default');
+
     getNewTask();
 
+}
+
+$( "#timer" ).on( "click", startGame );
+
+
+
+
+$( "#helpBut" ).on("click", function() {
+
+    if( $( ".modal" ).css('display') == 'none' ) {
+
+        $( "#helpBut" ).html('<i class="fa fa-times-circle-o"></i>');
+
+        $(".modal").slideDown();
+
+    }
+
+    else {
+
+        $( "#helpBut" ).html('<i class="fa fa-info-circle"></i>');
+
+        $(".modal").slideUp();
+
+    }
+
 });
+

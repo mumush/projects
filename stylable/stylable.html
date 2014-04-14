@@ -5,8 +5,6 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400' rel='stylesheet' type='text/css'>
 
-		<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
-
 		<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 
 		<link href='http://fonts.googleapis.com/css?family=Roboto:300,100' rel='stylesheet' type='text/css'>
@@ -46,14 +44,33 @@
 				<i class="fa fa-angle-double-down"></i>
 			</p>
 
-
 		</div>
 
 		<style contenteditable="true">
 
-
-
 		</style>
+
+		<button id="helpBut"><i class="fa fa-info-circle"></i></button>
+
+		<div class="modal">
+
+			<h1>How to Play</h1>
+
+			<p>
+
+			</p>
+			
+			<h1>How it Works</h1>
+
+			<p>
+				To achieve real time styling, Stylable makes use of the 
+				<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_Editable">content editable attribute</a> in an internal
+				stylesheet.  By setting this attribute equal to "true" in the style tag, players are able to dynamically type new styles that update
+				the Document Object Model (DOM).  Given that an internal stylesheet has the ability to overwrite defined styles in an external sheet,
+				this method allows for players to easily style accordingly without any hierarchy issues.
+			</p>
+			
+		</div>
 
 		<script src="script.js"></script>
 

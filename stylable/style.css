@@ -1,3 +1,19 @@
+::-webkit-input-placeholder {
+	color: #555;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+	color: #555;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+	color: #555; 
+}
+
+:-ms-input-placeholder {  
+	color: #555;
+}
+
 style {
 
 	display: block;
@@ -33,6 +49,24 @@ header {
 
 }
 
+#helpBut {
+
+	position: fixed;
+	bottom: 90px;
+	right: 30px;
+
+	outline: none;
+	border: none;
+	background: transparent;
+
+	cursor: pointer;
+
+	color: #555;
+
+	font-size: 1.5em;
+
+}
+
 header h1 {
 
 	margin-bottom: 0;
@@ -52,6 +86,8 @@ header h1 {
 	font-family: 'Roboto';
 	font-weight: 100;
 
+	transition: .1s color ease-in-out;
+
 }
 
 #task {
@@ -66,6 +102,8 @@ header h1 {
 #mainContent {
 
 	margin: auto 3%;
+
+	margin-bottom: 20%;
 
 	overflow: scroll;
 
@@ -144,6 +182,232 @@ header h1 {
 
 }
 
+#taskBut {
+
+	display: block;
+
+	margin: auto;
+
+	border: none;
+
+	padding: 15px 45px;
+
+	font-size: 1.3em;
+	font-family: 'Roboto';
+	font-weight: 300;
+
+	background: transparent;
+	color: #555;
+
+	border: 2px solid #555;
+
+	border-radius: 3px;
+
+	margin-bottom: 5%;
+
+}
+
+#groceryDiv {
+
+	padding: 25px 40px;
+
+	width: 150px;
+
+	margin: auto;
+
+	border: 2px solid #555;
+	border-radius: 3px;
+
+	font-family: 'Roboto';
+
+}
+
+#taskGroceryList {
+
+	margin: 0;
+	padding: 0;
+
+	list-style-type: square;
+
+}
+
+#taskGroceryList h3 {
+
+	margin: 0;
+	margin-bottom: 20px;
+
+	font-size: 1.6em;
+
+	border-bottom: 2px solid #555;
+
+}
+
+#taskGroceryList li {
+
+	font-weight: 300;
+
+	font-size: 1.1em;
+
+}
+
+#taskSongTable, #taskSongTable th, #taskSongTable td {
+
+	padding: 15px;
+
+	border-collapse: collapse;
+
+	border: 1px solid #555;
+
+	border-radius: 2px;
+
+	font-family: 'Roboto';
+
+}
+
+#taskSongTable {
+
+	margin: 0;
+	padding: 0;
+
+	margin: auto;
+
+}
+
+#taskSongTable th {
+
+	font-size: 1.7em;
+
+	font-weight: 100;
+
+}
+
+#taskSongTable td {
+
+	font-size: 1.2em;
+
+}
+
+#imgDiv {
+
+	display: block;
+	text-align: center;
+
+}
+
+#bruceImg {
+
+	width: 300px;
+
+	border-radius: 25px;
+
+	border: 5px solid #fff;
+
+	border-radius: 2px;
+
+	transition: all .2s ease-in-out;
+
+}
+
+#signUpForm {
+
+	text-align: center;
+
+}
+
+#signUpForm input {
+
+	margin-bottom: 2%;
+	padding: 15px;
+	padding-right: 50px;
+
+	outline: none;
+	border: none;
+
+	color: #555;
+	font-size: 1.4em;
+	font-weight: 100;
+	font-family: 'Roboto';
+
+	background: transparent;
+
+	border: 2px solid #555;
+	border-radius: 3px;
+
+}
+
+#signUpForm button {
+
+	cursor: pointer;
+
+	outline: none;
+	border: none;
+
+	padding: 10px 25px;
+
+	color: #555;
+	font-size: 1.4em;
+	font-weight: 100;
+	font-family: 'Roboto';
+
+	background: transparent;
+
+	border: 2px solid #555;
+	border-radius: 3px;
+
+
+}
+
+#signUpForm button:hover {
+
+	box-shadow: 0 2px #555;
+
+}
+
+#newsSection {
+
+	font-family: 'BLOKK Neue';
+
+	font-size: 1.3em;
+
+	padding: 10px;
+
+	border-radius: 10px;
+
+}
+
+#newsSection article {
+
+	text-indent: 1em;
+
+	margin-bottom: 20px;
+
+}
+
+#taskLinksDiv {
+
+	margin: 0;
+	margin: auto;
+
+	font-family: 'Roboto';
+
+}
+
+#taskLinksDiv p {
+
+	text-indent: 1em;
+
+	font-size: 1.1em;
+
+	line-height: 1.4em;
+
+}
+
+#taskLinksDiv a {
+
+	color: #8CB1E8;
+
+}
+
 style {
 
 	outline: none;
@@ -164,5 +428,21 @@ style {
 	background: #8CB1E8;
 
 	border-top: 5px solid #555;
+
+}
+
+.modal {
+
+	display: none;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 80%;
+	z-index: 10;
+	background: #FFB586; /*dim the background*/
+
+	border-bottom: 5px solid #fff;
 
 }
