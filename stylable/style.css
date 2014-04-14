@@ -30,6 +30,8 @@ body {
 
 	font-weight: 100;
 
+	transition: all .2s ease-in-out;
+
 }
 
 header {
@@ -67,7 +69,7 @@ header {
 
 }
 
-header h1 {
+#brand {
 
 	margin-bottom: 0;
 
@@ -86,7 +88,9 @@ header h1 {
 	font-family: 'Roboto';
 	font-weight: 100;
 
-	transition: .1s color ease-in-out;
+	color: #fff;
+
+	color: rgba(255, 255, 255, .8);
 
 }
 
@@ -107,13 +111,11 @@ header h1 {
 
 	overflow: scroll;
 
-/*	font-family: 'BLOKK Neue';*/
-
 }
 
 .instructions {
 
-	margin: 4% auto;
+	margin: 3% auto;
 
 	text-align: center;
 
@@ -423,7 +425,7 @@ style {
 	font-family: 'Source Code Pro';
 	font-weight: 100;
 	font-size: 1.15em;
-	color: #555;
+	color: #fff;
 
 	background: #8CB1E8;
 
@@ -438,11 +440,103 @@ style {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: 80%;
+	width: 96%;
+	height: 70%;
 	z-index: 10;
 	background: #FFB586; /*dim the background*/
 
 	border-bottom: 5px solid #fff;
 
+	padding: 0% 2%;
+
+	overflow-y: scroll;
+
 }
+
+.modal h2 {
+
+	font-weight: 100;
+	font-size: 3.5em;
+
+}
+
+.modal p {
+
+	text-indent: 1em;
+	line-height: 1.4em;
+
+	font-family: 'Roboto';
+
+	font-size: 1.2em;
+
+}
+
+.modal p > a {
+
+	color: #555;
+
+}
+
+@media all and (max-width: 940px) {
+
+	header {
+
+		margin-bottom: 4%;
+
+	}
+
+	#brand {
+
+		font-size: 1.5em;
+
+		margin-bottom: 5%;
+
+	}
+
+	#score {
+
+		position: absolute;
+		top: 15px;
+		right: 40px;
+
+	}
+
+	#timer {
+
+		font-size: 2.1em;
+
+		margin-bottom: 5%;
+
+	}
+
+	#task {
+
+		font-size: 1em;
+
+	}
+
+	.instructions {
+
+		font-size: 1.4em;
+
+	}
+
+	.modal h2 {
+
+		font-size: 2.5em;
+
+	}
+
+	.modal p {
+
+		font-size: 1em;
+
+	}
+
+}
+
+
+
+
+
+

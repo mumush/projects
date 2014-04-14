@@ -23,7 +23,7 @@
 		<header>
 
 			<h3 id="score"><i class="fa fa-trophy"></i> <span id="totalPoints">0</span></h3>
-			<h1><i class="fa fa-code"></i> Stylable</h1>
+			<h1 id="brand"><i class="fa fa-code"></i> Stylable</h1>
 			<h2 id="timer">Click to Begin</h2>
 			<h3 id="task">CSS Styles, Under the Gun</h3>
 		</header>
@@ -54,13 +54,19 @@
 
 		<div class="modal">
 
-			<h1>How to Play</h1>
+			<h2>How to Play</h2>
 
 			<p>
-
+				After clicking the text to begin the game, a task will be shown underneath the countdown.  Each task tells the player which element
+				to style, and how.  This is done by referencing the elements <em>id</em> in the tasks description.  So for example if the task was: 
+				"Give all anchor tags in the #newsDiv the color blue", the player would target the #newsDiv and then
+				use the "a" selector to select the anchor tags inside the #newsDiv, thus producing "#newsDiv a".  Once the player has formed their style 
+				declaration, they can type it in the blue style field in the bottom of the window.  The styles will take effect immediately, and if syntactically correct, can be seen dynamically in the browser window.  
+				If the style typed into the style field satisfies the task requirement, and time hasn't run out, the player is awarded points and
+				will be prompted with a new task.
 			</p>
 			
-			<h1>How it Works</h1>
+			<h2>How it Works</h2>
 
 			<p>
 				To achieve real time styling, Stylable makes use of the 
