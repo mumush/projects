@@ -180,7 +180,7 @@ header {
 
 }
 
-#taskBut {
+#clickMeBut {
 
 	display: block;
 
@@ -205,13 +205,17 @@ header {
 
 }
 
-#groceryDiv {
+#groceryList {
 
-	padding: 25px 40px;
+	margin: 0;
+	padding: 0;
+	padding: 25px 30px;
+
+	margin: auto;
 
 	width: 150px;
 
-	margin: auto;
+	list-style-type: square;
 
 	border: 2px solid #555;
 	border-radius: 3px;
@@ -220,16 +224,7 @@ header {
 
 }
 
-#taskGroceryList {
-
-	margin: 0;
-	padding: 0;
-
-	list-style-type: square;
-
-}
-
-#taskGroceryList h3 {
+#groceryList h3 {
 
 	margin: 0;
 	margin-bottom: 20px;
@@ -240,7 +235,7 @@ header {
 
 }
 
-#taskGroceryList li {
+#groceryList li {
 
 	font-weight: 300;
 
@@ -248,7 +243,7 @@ header {
 
 }
 
-#taskSongTable, #taskSongTable th, #taskSongTable td {
+#songTable, #songTable th, #songTable td {
 
 	padding: 15px;
 
@@ -262,7 +257,7 @@ header {
 
 }
 
-#taskSongTable {
+#songTable {
 
 	margin: 0;
 	padding: 0;
@@ -271,7 +266,7 @@ header {
 
 }
 
-#taskSongTable th {
+#songTable th {
 
 	font-size: 1.7em;
 
@@ -279,30 +274,9 @@ header {
 
 }
 
-#taskSongTable td {
+#songTable td {
 
 	font-size: 1.2em;
-
-}
-
-#imgDiv {
-
-	display: block;
-	text-align: center;
-
-}
-
-#bruceImg {
-
-	width: 300px;
-
-	border-radius: 25px;
-
-	border: 5px solid #fff;
-
-	border-radius: 2px;
-
-	transition: all .2s ease-in-out;
 
 }
 
@@ -381,7 +355,7 @@ header {
 
 }
 
-#taskLinksDiv {
+#linksDiv {
 
 	margin: 0;
 	margin: auto;
@@ -390,7 +364,7 @@ header {
 
 }
 
-#taskLinksDiv p {
+#linksDiv p {
 
 	text-indent: 1em;
 
@@ -400,11 +374,36 @@ header {
 
 }
 
-#taskLinksDiv a {
+#linksDiv a {
 
 	color: #8CB1E8;
 
 }
+
+/*Default styling for images and their containers */
+
+.taskImgContainer {
+
+	display: block;
+	text-align: center;
+
+}
+
+.taskImg {
+
+	margin: 50px;
+
+	width: 250px;
+
+	border: 5px solid #fff;
+
+	border-radius: 5px;
+
+	-webkit-transition: all .5s ease-in-out;	
+
+}
+
+/*End image/container styling */
 
 style {
 
@@ -421,7 +420,7 @@ style {
 	font-family: 'Source Code Pro';
 	font-weight: 100;
 	font-size: 1.15em;
-	color: #fff;
+	color: #555;
 
 	background: #8CB1E8;
 

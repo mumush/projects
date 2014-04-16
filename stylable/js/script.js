@@ -49,6 +49,10 @@ function validateStyles(element, property, value, points) {
 
         // console.log('validating styling...');
 
+        //console.log($(element).css(property));
+
+        //console.log(window.getComputedStyle($(element)));
+
         if( $(element).css(property) == value ) { //in this case, value is the rgb value of the color red rgb(255, 0, 0) not 'red'
 
             $('#timer').text('Correct!'); //tell the user they got something right!
