@@ -494,37 +494,29 @@ style {
 
 }
 
-#butsDiv {
+#bodyHeart {
 
 	margin: auto;
 
+	display: block;
+
 	text-align: center;
 
-}
+	font-size: 5em;
 
-.butsDefault {
+	color: #E8786E;
 
-	cursor: pointer;
+	-webkit-animation: heartBeat 3s;
 
-	border: none;
-	outline: none;
-
-	color: #555;
-
-}
-
-#button1 {
-
-	padding: 15px 20px;
-
-	font-size: 1.7em;
-
-	background: transparent;
-
-	border: 1px solid #555;
-	border-radius: 5px;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
 
 }
+
+
+
 
 
 .modal {
@@ -570,6 +562,66 @@ style {
 	color: #555;
 
 }
+
+
+
+/*Animations*/
+
+@-webkit-keyframes heartBeat {
+	0% {font-size: 5em;}
+	10% {font-size: 5.8em;}
+	20% {font-size: 5em;}
+	30% {font-size: 5.8em;}
+	40% {font-size: 5em;}
+	50% {font-size: 5.8em;}
+	60% {font-size: 5em;}
+	70% {font-size: 5.8em;}
+	80% {font-size: 5em;}
+	90% {font-size: 5.8em;}
+	100% {font-size: 5em;}
+}
+
+@-moz-keyframes heartBeat {
+	0% {font-size: 5em;}
+	10% {font-size: 5.8em;}
+	20% {font-size: 5em;}
+	30% {font-size: 5.8em;}
+	40% {font-size: 5em;}
+	50% {font-size: 5.8em;}
+	60% {font-size: 5em;}
+	70% {font-size: 5.8em;}
+	80% {font-size: 5em;}
+	90% {font-size: 5.8em;}
+	100% {font-size: 5em;}
+}
+@-o-keyframes heartBeat {
+	0% {font-size: 5em;}
+	10% {font-size: 5.8em;}
+	20% {font-size: 5em;}
+	30% {font-size: 5.8em;}
+	40% {font-size: 5em;}
+	50% {font-size: 5.8em;}
+	60% {font-size: 5em;}
+	70% {font-size: 5.8em;}
+	80% {font-size: 5em;}
+	90% {font-size: 5.8em;}
+	100% {font-size: 5em;}
+}
+@keyframes heartBeat {
+	0% {font-size: 5em;}
+	10% {font-size: 5.8em;}
+	20% {font-size: 5em;}
+	30% {font-size: 5.8em;}
+	40% {font-size: 5em;}
+	50% {font-size: 5.8em;}
+	60% {font-size: 5em;}
+	70% {font-size: 5.8em;}
+	80% {font-size: 5em;}
+	90% {font-size: 5.8em;}
+	100% {font-size: 5em;}
+}
+
+/*END Animations*/
 
 /*Media Queries */
 
@@ -642,7 +694,6 @@ style {
 }
 
 /*End Media Queries */
-
 
 
 /*Icon Font Styling*/
@@ -833,8 +884,6 @@ style {
 }
 
 /*End Icon Font Styling*/
-
-
 
 
 
