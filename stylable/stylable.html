@@ -6,11 +6,10 @@
 		<!--Google Web Fonts-->
 		<link href='http://fonts.googleapis.com/css?family=Poiret+One|Source+Code+Pro:200|Roboto:100,300' rel='stylesheet' type='text/css'>
 
-		<!--FontAwesome Icons-->
-		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-
 		<!--Main External Stylesheet-->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 	</head>
 
@@ -18,15 +17,16 @@
 
 		<header>
 
-			<h3 id="score"><i class="fa fa-trophy"></i> <span id="totalPoints">0</span></h3>
-			<h1 id="brand"><i class="fa fa-code"></i> Stylable</h1>
+			<h3 id="score"><i class="icon-medal"></i> <span id="totalPoints">0</span></h3>
+			<h1 id="brand"><a href="stylable.html"><i class="icon-chronometer"></i> Stylable</a></h1>
+			<h3 id="tagLine">CSS Styles, Under the Gun</h3>
 			<h2 id="timer">Click to Begin</h2>
-			<h3 id="task">CSS Styles, Under the Gun</h3>
+			<h3 id="task"></h3>
 		</header>
 
 		<div id="mainContent">
 
-			<p class="instructions">
+<!-- 			<p class="instructions">
 				Goal: Amount as many points as possible before the time runs out.
 			</p>
 			<p class="instructions">
@@ -37,8 +37,17 @@
 				Type some nifty CSS down there.
 			</p>
 			<p class="instructions">
-				<i class="fa fa-angle-double-down"></i>
-			</p>
+				<i class="icon-angle-double-down"></i>
+			</p> -->
+
+<!-- 			<div class="taskImgContainer">
+				<img id="zurgImg" class="taskImg" src="img/zurg.jpg" alt="Emperor Zurg" />
+			</div> -->
+
+			<div id="butsDiv">
+				<button type="button" id="button1" class="butsDefault"><i class="icon-trash"></i></button>
+			</div>
+
 
 		</div>
 
@@ -46,7 +55,7 @@
 
 		</style>
 
-		<button id="helpBut"><i class="fa fa-info-circle"></i></button>
+		<button id="helpBut"><i class="icon-bulb"></i></button>
 
 		<div class="modal">
 

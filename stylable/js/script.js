@@ -1,3 +1,4 @@
+
 var gameTimer; //in game counter
 var validateInterval; //style validation interval
 
@@ -49,9 +50,7 @@ function validateStyles(element, property, value, points) {
 
         // console.log('validating styling...');
 
-        //console.log($(element).css(property));
-
-        //console.log(window.getComputedStyle($(element)));
+        console.log($(element).css(property));
 
         if( $(element).css(property) == value ) { //in this case, value is the rgb value of the color red rgb(255, 0, 0) not 'red'
 
@@ -126,7 +125,7 @@ $( "#helpBut" ).on("click", function() {
 
     if( $( ".modal" ).css('display') == 'none' ) {
 
-        $( "#helpBut" ).html('<i class="fa fa-times-circle-o"></i>');
+        $( "#helpBut" ).css('color', '#fff');
 
         $(".modal").slideDown();
 
@@ -134,7 +133,7 @@ $( "#helpBut" ).on("click", function() {
 
     else {
 
-        $( "#helpBut" ).html('<i class="fa fa-info-circle"></i>');
+        $( "#helpBut" ).css('color', '#555');
 
         $(".modal").slideUp();
 
