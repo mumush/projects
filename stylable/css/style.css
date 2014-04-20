@@ -515,7 +515,41 @@ style {
 
 }
 
+#styleBulb {
 
+	margin-top: 2%;
+
+	text-align: center;
+
+	display: block;
+
+	font-size: 6em;
+
+	color: #fff;
+
+	-webkit-animation: lightBulb 5s;
+
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+
+}
+
+#ipsumQuote {
+
+	line-height: 1.4em;
+	font-size: 1.4em;
+
+	text-indent: 1em;
+
+}
+
+#ipsumQuote cite {
+
+	padding-left: 20px;
+
+}
 
 
 
@@ -566,6 +600,11 @@ style {
 
 
 /*Animations*/
+
+@-webkit-keyframes lightBulb {
+	0% {color: #fff;}
+	100% {color: #FFED6B;}
+}
 
 @-webkit-keyframes heartBeat {
 	0% {font-size: 5em;}
