@@ -62,6 +62,7 @@ function validateStyles(element, property, value, points) {
             var addPoints = parseInt(points); //parse the parameters value to an integer for below addition
             var pointsInteger = parseInt( $('#totalPoints').text() ); //do the same for the existing value in the span #totalPoints
 
+
             var newPointCount = pointsInteger + addPoints; //add em up!
 
             $('#totalPoints').text(newPointCount); //set the inner text of the totalPoints span to the newly added count

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 18, 2014 at 03:52 PM
+-- Generation Time: Apr 21, 2014 at 10:48 PM
 -- Server version: 5.5.33
 -- PHP Version: 5.5.3
 
@@ -29,7 +29,7 @@ CREATE TABLE `tasks` (
   `html` text NOT NULL,
   `points` int(3) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `tasks`
@@ -50,4 +50,9 @@ INSERT INTO `tasks` (`id`, `task`, `element`, `property`, `value`, `html`, `poin
 (12, 'Emperor Zurg is bad. Let''s get rid of him by not displaying #zurgImg', '#zurgImg', 'display', 'none', '			<div class="taskImgContainer">\r\n				<img id="zurgImg" class="taskImg" src="img/zurg.jpg" alt="Walle the Robot" />\r\n			</div>', 10),
 (13, 'Let''s make this witch fade away by bringing #witchImg''s opacity down to 0', '#witchImg', 'opacity', '0', '			<div class="taskImgContainer">\r\n				<img id="witchImg" class="taskImg" src="img/witch.jpg" alt="Old Hag" />\r\n			</div>', 10),
 (14, 'Let''s give #vertNav''s li tags a larger font.  How about 1.5em''s', '#vertNav li', 'font-size', '36px', '			<ul id="vertNav">\r\n				<li><i class="icon-shop"></i> Home</li>\r\n				<li><i class="icon-pen2"></i> Projects</li>\r\n				<li><i class="icon-user"></i> About</li>\r\n				<li><i class="icon-mail"></i> Contact</li>\r\n			</ul>', 20),
-(15, 'We''re currently on the home page.  Tell the user this by setting #horizNav''s first list item to have a 3 pixel solid white border on the bottom', '#horizNav li:first-child', 'border-bottom', '3px solid rgb(255, 255, 255)', '			<ul id="horizNav">\r\n				<li><i class="icon-shop"></i></li>\r\n				<li><i class="icon-stack"></i></li>\r\n				<li><i class="icon-calendar"></i></li>\r\n				<li><i class="icon-settings"></i></li>\r\n			</ul>', 30);
+(15, 'We''re currently on the home page.  Tell the user this by setting #horizNav''s first list item to have a 3 pixel solid white border on the bottom', '#horizNav li:first-child', 'border-bottom', '3px solid rgb(255, 255, 255)', '			<ul id="horizNav">\r\n				<li><i class="icon-shop"></i></li>\r\n				<li><i class="icon-stack"></i></li>\r\n				<li><i class="icon-calendar"></i></li>\r\n				<li><i class="icon-settings"></i></li>\r\n			</ul>', 30),
+(16, 'The body''s background is too green...Let''s change it to #FFB586', 'body', 'background-color', 'rgb(255, 181, 134)', '<i id="bodyHeart" class="icon-heart"></i>', 10),
+(17, 'The style element at the bottom of the window is too dark, lets lighten it up with a #FFB586 color for the background', 'style', 'background-color', 'rgb(255, 181, 134)', '<i id="styleBulb" class="icon-bulb"></i>', 20),
+(18, 'This citation doesn''t look right.  Let''s give the cite tag inside #ipsumQuote 20 pixels of padding on the left', '#ipsumQuote cite', 'padding-left', '20px', '			<blockquote id="ipsumQuote"> \r\n				<p>\r\n					Icing danish tart oat cake tart pudding toffee brownie dragee. Chupa chups bonbon sweet roll chocolate cake bear claw lollipop caramels donut. Wafer apple pie lollipop fruitcake unerdwear.com chocolate cake.\r\n				</p>\r\n				<cite>- Cupcake Ipsum  <a href="http://www.cupcakeipsum.com/" target="_blank">April 14, 2014</a></cite>  \r\n			</blockquote>', 55),
+(19, 'Because you like Stylable so much, let''s increase #likeIcon''s size to 5em''s.', '#likeIcon', 'font-size', '80px', '<i id="likeIcon" class="icon-like"></i>', 15),
+(20, '#figLorax''s figcaption is tough to see.  Give its font a weight of 300', '#figLorax figcaption', 'font-weight', '300', '			<figure class="taskImgContainer" id="figLorax">\r\n				<img class="taskImg" src="img/lorax.jpg" alt="Dat Pic of Bruce">\r\n				<figcaption>Figure 1. A candid shot of the Lorax caught in the wild</figcaption>\r\n			</figure>', 30);
