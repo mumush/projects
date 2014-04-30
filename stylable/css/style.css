@@ -701,17 +701,35 @@ style {
 }
 
 
+/*Minion Styles*/
+
 #minionContainer {
 
 	margin: auto;
+	margin-top: 30px;
 	text-align: center;
 
-	width: 150px;
-	height: 250px;
+	width: 130px;
+	height: 273px;
 
-	border-radius: 30%;
+	border-radius: 25%;
 
 	background: #FFED6B;
+
+}
+
+#minionBand {
+
+	display: inline-block;
+
+	text-align: center;
+	margin: auto;
+	margin-top: 60px;
+
+	width: 130px;
+	height: 10px;
+
+	background: #555;
 
 }
 
@@ -720,7 +738,7 @@ style {
 	display: inline-block;
 
 	margin: auto;
-	margin-top: 30px;
+	margin-top: -35px;
 	text-align: center;
 
 	width: 50px;
@@ -757,14 +775,28 @@ style {
 
 	margin: auto;
 	margin-top: 30px;
+	margin-bottom: 60px;
 	text-align: center;
 
-	width: 40px;
+	width: 30px;
 	height: 2px;
 
 	background: #555;
 
 }
+
+#minionPants {
+
+	width: 130px;
+	height: 80px;
+
+	border-radius: 1px 1px 25% 25%;
+
+	background: #8CB1E8;
+
+}
+
+/*End Minion Styles*/
 
 
 .modal {
