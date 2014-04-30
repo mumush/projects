@@ -421,7 +421,8 @@ style {
 
 	margin: 50px;
 
-	width: 250px;
+	width: 200px;
+	height: auto;
 
 	border: 5px solid #fff;
 
@@ -431,6 +432,18 @@ style {
 	-moz-transition: all .3s ease-in-out;
 	-o-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
+
+}
+
+.imgSmall {
+
+	width: 100px;
+
+	margin: 25px;
+
+	border: 4px solid #fff;
+
+	border-radius: 2px;
 
 }
 
@@ -628,24 +641,45 @@ style {
 
 }
 
+#russelImg {
 
+	margin: 0;
 
-#onFire {
+}
+
+#stoplightContainer {
+
+	margin: auto;
+	text-align: center;
+
+	background: #FFF084;
+
+	width: 100px;
+
+	border: 4px solid #fff;
+	border-radius: 3px;
+
+}
+
+.stopLightBulb {
+
+	cursor: pointer;
+
+	outline: none;
+	border: none;
+
+	text-align: center;
+	margin: 10px auto;
+	padding: 30px;
 
 	display: block;
 
-	position: absolute;
+	border: 3px solid #fff;
+	border-radius: 50%;
 
-	bottom: 88px;
-	left: 20px;
-
-	font-size: 2em;
-
-	text-align: center;
-
-	color: #E88C6E;
-
-/*	-webkit-animation: onFire 10s;*/
+	background: green;
+	color: transparent;
+	font-size: 1.5em;
 
 	-webkit-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
@@ -653,6 +687,85 @@ style {
 	transition: all .2s ease-in-out;
 
 }
+
+.stopLightBulb:nth-child(1) {
+	background: #E8786E;
+}
+
+.stopLightBulb:nth-child(2) {
+	background: #FFED6B;
+}
+
+.stopLightBulb:nth-child(3) {
+	background: #8CB1E8;
+}
+
+
+#minionContainer {
+
+	margin: auto;
+	text-align: center;
+
+	width: 150px;
+	height: 250px;
+
+	border-radius: 30%;
+
+	background: #FFED6B;
+
+}
+
+#minionGlasses {
+
+	display: inline-block;
+
+	margin: auto;
+	margin-top: 30px;
+	text-align: center;
+
+	width: 50px;
+	height: 50px;
+
+	background: #fff;
+
+	border: 5px solid #ccc;
+	border-radius: 50%;
+
+}
+
+#minionEye {
+
+	display: block;
+
+	margin: auto;
+	margin-top: 15px;
+	text-align: center;
+
+	width: 10px;
+	height: 10px;
+
+	background: #fff;
+
+	border: 5px solid #555;
+	border-radius: 50%;	
+
+}
+
+#minionMouth {
+
+	display: block;
+
+	margin: auto;
+	margin-top: 30px;
+	text-align: center;
+
+	width: 40px;
+	height: 2px;
+
+	background: #555;
+
+}
+
 
 .modal {
 
@@ -701,21 +814,6 @@ style {
 
 
 /*Animations*/
-
-@-webkit-keyframes onFire {
-	0% {-webkit-transform: rotate(-20deg);}
-	10% {-webkit-transform: rotate(20deg);}
-	20% {-webkit-transform: rotate(-20deg);}
-	30% {-webkit-transform: rotate(20deg);}
-	40% {-webkit-transform: rotate(-20deg);}
-	50% {-webkit-transform: rotate(20deg);}
-	60% {-webkit-transform: rotate(-20deg);}
-	70% {-webkit-transform: rotate(20deg);}
-	80% {-webkit-transform: rotate(-20deg);}
-	90% {-webkit-transform: rotate(20deg);}
-	100% {-webkit-transform: rotate(-20deg);}
-}
-
 
 @-webkit-keyframes lightBulb {
 	0% {color: #fff;}
