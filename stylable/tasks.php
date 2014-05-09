@@ -44,7 +44,7 @@
 			die();
 		}
 
-		if ( $stmt = $mysqli->prepare("SELECT * FROM tasks WHERE id=18") ) { //prepare statement -> ORDER BY rand() LIMIT 1
+		if ( $stmt = $mysqli->prepare("SELECT * FROM tasks WHERE id=26") ) { //prepare statement -> ORDER BY rand() LIMIT 1
 
 			$stmt->execute();
 
