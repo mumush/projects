@@ -567,11 +567,6 @@ style {
 
 	padding: 15px 30px;
 
-	background: #FFB586;
-
-	border: 4px solid #fff;
-	border-radius: 3px;
-
 }
 
 #ipsumQuote p:before {
@@ -589,6 +584,11 @@ style {
 #ipsumQuote cite {
 
 	font-size: .9em;
+
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
 
 }
 
@@ -700,6 +700,47 @@ style {
 	background: #8CB1E8;
 }
 
+.graphContainer {
+
+	display: block;
+	margin: auto;
+	text-align: center;
+
+}
+
+.graphBar {
+
+	display: inline-block;
+
+	width: 30px;
+	height: 300px;
+	background: #FFB586;
+
+	margin-right: 20px;
+
+	border: 2px solid #fff;
+	border-bottom: none;
+	border-radius: 2px;
+
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+
+}
+
+.graphBar:nth-child(odd) {
+
+	height: 120px;
+
+}
+
+.graphBar:nth-child(2) {
+
+	height: 180px;	
+
+}
+
 
 /*Minion Styles*/
 
@@ -799,6 +840,8 @@ style {
 /*End Minion Styles*/
 
 
+/* Modal Styles */
+
 .modal {
 
 	display: none;
@@ -842,6 +885,8 @@ style {
 	color: #555;
 
 }
+
+/* End Modal Styles */
 
 
 
